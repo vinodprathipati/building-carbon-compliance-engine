@@ -1,0 +1,217 @@
+{
+  "version": "0.1.0",
+  "description": "Field vocabulary for extracting building-performance regulation facts (emissions factors, fuel coefficients, penalty rules, covered-building rules) from municipal PDFs. This is a vocabulary, not a data model — it defines what fields exist, their types, and how to extract them; grounding/lineage columns (source_chunk_id, extracted_quote, extraction_model, extracted_at) are added by the pipeline itself, not listed here. See datamodel.md for the corresponding Postgres tables.",
+  "documentTypes": [
+    "statute",
+    "regulation",
+    "ordinance"
+  ],
+  "concepts": {
+    "EmissionsFactor": {
+      "description": "The allowed emissions intensity for one property type during one compliance period. Source: the property-type emissions-cap table found in the regulation text. Maps to: emissions_factors table.",
+      "jsonPath": "emissionsFactors[]",
+      "extractionMethod": "table",
+      "retrievalHint": "table of greenhouse gas emissions factors by property type and compliance period",
+      "naturalKey": ["jurisdiction", "property_type", "period_start", "period_end"],
+      "fields": [
+        {
+          "id": "jurisdiction",
+          "displayName": "Jurisdiction",
+          "dataType": "string",
+          "required": true,
+          "description": "The municipality this factor applies to (e.g. 'New York City', 'Boston'). Infer from the document's own text/letterhead — never assume it from the source filename or folder."
+        },
+        {
+          "id": "property_type",
+          "displayName": "Property Type",
+          "dataType": "string",
+          "required": true,
+          "description": "The exact property-type label as printed in the table (e.g. 'Multifamily Housing', 'Data Center'). Extract verbatim — this must join against a disclosure dataset's own property-type field, so do not normalize, abbreviate, or reword it."
+        },
+        {
+          "id": "period_start",
+          "displayName": "Period Start Year",
+          "dataType": "integer",
+          "required": true,
+          "description": "First calendar year this factor applies to, inclusive. For a period printed as '2024-2029', this is 2024."
+        },
+        {
+          "id": "period_end",
+          "displayName": "Period End Year",
+          "dataType": "integer",
+          "required": true,
+          "description": "Last calendar year this factor applies to, inclusive. For a period printed as '2024-2029', this is 2029."
+        },
+        {
+          "id": "value",
+          "displayName": "Emissions Factor Value",
+          "dataType": "number",
+          "required": true,
+          "description": "The numeric factor exactly as printed — do not round or convert. Preserve every significant digit shown (e.g. 0.000288962), since these coefficients are often precise to 6-9 decimal places and rounding changes downstream penalty calculations."
+        },
+        {
+          "id": "unit",
+          "displayName": "Unit",
+          "dataType": "string",
+          "required": true,
+          "description": "The unit exactly as printed (e.g. 'tCO2e/sf'). Do not assume a unit — municipalities may express this differently (e.g. per square meter instead of per square foot)."
+        }
+      ]
+    },
+    "FuelCoefficient": {
+      "description": "The emissions coefficient for one fuel/energy type during one compliance period, used to convert a building's raw energy consumption into actual emissions. Source: the fuel-coefficient table found in the regulation text. Maps to: fuel_coefficients table.",
+      "jsonPath": "fuelCoefficients[]",
+      "extractionMethod": "table",
+      "retrievalHint": "table of greenhouse gas emissions coefficients by fuel type and compliance period",
+      "naturalKey": ["jurisdiction", "fuel_type", "period_start", "period_end"],
+      "fields": [
+        {
+          "id": "jurisdiction",
+          "displayName": "Jurisdiction",
+          "dataType": "string",
+          "required": true,
+          "description": "The municipality this coefficient applies to. Infer from the document's own text, not the filename."
+        },
+        {
+          "id": "fuel_type",
+          "displayName": "Fuel Type",
+          "dataType": "string",
+          "required": true,
+          "description": "The exact fuel/energy source label as printed (e.g. 'Grid Electricity', 'Natural Gas', 'Fuel Oil #2', 'District Steam'). Extract verbatim — this must join against a disclosure dataset's own fuel-column naming, so do not normalize or abbreviate."
+        },
+        {
+          "id": "period_start",
+          "displayName": "Period Start Year",
+          "dataType": "integer",
+          "required": true,
+          "description": "First calendar year this coefficient applies to, inclusive."
+        },
+        {
+          "id": "period_end",
+          "displayName": "Period End Year",
+          "dataType": "integer",
+          "required": true,
+          "description": "Last calendar year this coefficient applies to, inclusive."
+        },
+        {
+          "id": "value",
+          "displayName": "Coefficient Value",
+          "dataType": "number",
+          "required": true,
+          "description": "The numeric coefficient exactly as printed — do not round or convert. Preserve every significant digit shown."
+        },
+        {
+          "id": "unit",
+          "displayName": "Unit",
+          "dataType": "string",
+          "required": true,
+          "description": "The unit exactly as printed. This varies by fuel type within the same table — e.g. electricity is commonly expressed per kWh while combustion fuels (gas, oil, steam) are commonly expressed per kBtu. Extract the unit shown for this specific fuel type; never assume it matches other rows in the same table."
+        }
+      ]
+    },
+    "PenaltyRule": {
+      "description": "A civil penalty provision for non-compliance: exceeding the emissions limit, failing to file a required report, or filing a false report. Source: statutory penalty language, typically prose rather than a table. Maps to: penalty_rules table.",
+      "jsonPath": "penaltyRules[]",
+      "extractionMethod": "prose",
+      "retrievalHint": "civil penalty for exceeding building emissions limit failure to file false statement",
+      "naturalKey": ["jurisdiction", "rule_type", "period_start", "period_end"],
+      "fields": [
+        {
+          "id": "jurisdiction",
+          "displayName": "Jurisdiction",
+          "dataType": "string",
+          "required": true,
+          "description": "The municipality this penalty applies to. Infer from the document's own text, not the filename."
+        },
+        {
+          "id": "rule_type",
+          "displayName": "Rule Type",
+          "dataType": "enum",
+          "allowedValues": ["excess_emissions", "late_filing", "false_reporting"],
+          "required": true,
+          "description": "Which non-compliance scenario this penalty covers. 'excess_emissions' = building filed but exceeded its emissions limit. 'late_filing' = building was required to report but did not (or filed late). 'false_reporting' = a filed report contained a knowing material false statement. Classify based on the provision's own language, not its section number."
+        },
+        {
+          "id": "period_start",
+          "displayName": "Period Start Year",
+          "dataType": "integer",
+          "required": false,
+          "description": "First calendar year this penalty rate applies to, inclusive. Omit (null) if the statute does not scope this penalty to specific compliance periods — not every penalty provision changes by period the way emissions factors do."
+        },
+        {
+          "id": "period_end",
+          "displayName": "Period End Year",
+          "dataType": "integer",
+          "required": false,
+          "description": "Last calendar year this penalty rate applies to, inclusive. Omit (null) under the same condition as period_start."
+        },
+        {
+          "id": "rate",
+          "displayName": "Rate",
+          "dataType": "number",
+          "required": true,
+          "description": "The numeric penalty amount exactly as printed — e.g. 268 for a '$268 per ton' provision, or 500000 for a flat '$500,000' provision. No currency symbol or commas."
+        },
+        {
+          "id": "rate_unit",
+          "displayName": "Rate Unit",
+          "dataType": "string",
+          "required": true,
+          "description": "How the rate is applied, exactly as the provision states it — e.g. '$/tCO2e' for a per-ton excess-emissions rate, '$/sf/month' for a late-filing rate, or 'flat' for a single fixed amount like a false-reporting penalty."
+        },
+        {
+          "id": "formula_description",
+          "displayName": "Formula Description",
+          "dataType": "string",
+          "required": false,
+          "description": "Plain-English restatement of the calculation, only when the rate/rate_unit pair alone doesn't fully capture it. Explicitly note if the statute caps this as a maximum ('shall be liable for not more than...') rather than stating it as a fixed, guaranteed charge — that distinction matters for how downstream projections should treat the number."
+        }
+      ]
+    },
+    "CoveredBuildingRule": {
+      "description": "The criteria that determine whether a building is subject to this regulation at all — size thresholds and exemptions. Source: statutory 'covered building' definition, typically prose. Maps to: covered_building_rules table.",
+      "jsonPath": "coveredBuildingRules[]",
+      "extractionMethod": "prose",
+      "retrievalHint": "covered building definition gross square feet threshold exemption exception",
+      "naturalKey": ["jurisdiction", "threshold_type"],
+      "fields": [
+        {
+          "id": "jurisdiction",
+          "displayName": "Jurisdiction",
+          "dataType": "string",
+          "required": true,
+          "description": "The municipality this rule applies to. Infer from the document's own text, not the filename."
+        },
+        {
+          "id": "threshold_type",
+          "displayName": "Threshold Type",
+          "dataType": "enum",
+          "allowedValues": ["single_building", "multi_building_lot"],
+          "required": true,
+          "description": "'single_building' = the size threshold for one standalone building. 'multi_building_lot' = the combined threshold for multiple buildings sharing a tax lot. A jurisdiction typically states both as separate thresholds — extract each as its own row."
+        },
+        {
+          "id": "threshold_sf",
+          "displayName": "Threshold (sq ft)",
+          "dataType": "number",
+          "required": true,
+          "description": "The gross square footage threshold at or above which a building/lot is covered, exactly as printed. No commas."
+        },
+        {
+          "id": "aggregation_rule",
+          "displayName": "Aggregation Rule",
+          "dataType": "string",
+          "required": false,
+          "description": "Plain-English description of how multiple buildings on the same tax lot get combined for the multi_building_lot threshold test. Omit for threshold_type = single_building."
+        },
+        {
+          "id": "exceptions",
+          "displayName": "Exceptions",
+          "dataType": "array<string>",
+          "required": false,
+          "description": "Plain-English list of carve-outs or exemptions that remove an otherwise-covered building from this rule (e.g. affordable housing exemptions, non-profit healthcare adjustments, city-owned building phase-in schedules). One array entry per distinct exception — do not merge unrelated exceptions into one string."
+        }
+      ]
+    }
+  }
+}
