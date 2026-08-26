@@ -7,6 +7,7 @@ from pgvector.psycopg import register_vector
 from sentence_transformers import SentenceTransformer
 
 from regulation_pipeline.chunking.docling_hybrid_chunker import Chunk
+from regulation_pipeline.chunking.table_extractor import TableDescriptor, to_chunk
 from regulation_pipeline.config import Settings
 
 SEARCH_DOCUMENT_PREFIX = "search_document: "
@@ -71,3 +72,40 @@ def embed_and_store(
 ) -> None:
     embeddings = embed_chunks(settings.embed_model_hf_id, chunks)
     store_chunks(conn, rag_id, chunks, embeddings, settings.embed_model_hf_id)
+
+
+def store_document_tables(
+    conn: psycopg.Connection,
+    rag_id: int,
+    descriptors: list[TableDescriptor],
+) -> None:
+    with conn.cursor() as cur:
+        for descriptor in descriptors:
+            cur.execute(
+                """
+                insert into document_tables
+                    (rag_id, table_ref, chunk_id, page_number, caption, column_headers, rows)
+                values (%s, %s, %s, %s, %s, %s, %s)
+                """,
+                (
+                    rag_id,
+                    descriptor.table_ref,
+                    descriptor.chunk_id,
+                    descriptor.page_number,
+                    descriptor.caption,
+                    json.dumps(descriptor.column_headers),
+                    json.dumps(descriptor.rows),
+                ),
+            )
+    conn.commit()
+
+
+def embed_and_store_tables(
+    conn: psycopg.Connection,
+    settings: Settings,
+    rag_id: int,
+    descriptors: list[TableDescriptor],
+) -> None:
+    chunks = [to_chunk(descriptor) for descriptor in descriptors]
+    embed_and_store(conn, settings, rag_id, chunks)
+    store_document_tables(conn, rag_id, descriptors)
