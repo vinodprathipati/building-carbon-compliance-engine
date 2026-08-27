@@ -83,15 +83,15 @@
           "id": "period_start",
           "displayName": "Period Start Year",
           "dataType": "integer",
-          "required": true,
-          "description": "First calendar year this coefficient applies to, inclusive."
+          "required": false,
+          "description": "First calendar year this coefficient applies to, inclusive. Omit (null) if the table isn't organized by compliance period — some fuel-coefficient tables (e.g. a general combustion-fuel list) apply uniformly across all periods rather than changing per period the way utility electricity/gas coefficients do."
         },
         {
           "id": "period_end",
           "displayName": "Period End Year",
           "dataType": "integer",
-          "required": true,
-          "description": "Last calendar year this coefficient applies to, inclusive."
+          "required": false,
+          "description": "Last calendar year this coefficient applies to, inclusive. Omit (null) under the same condition as period_start."
         },
         {
           "id": "value",

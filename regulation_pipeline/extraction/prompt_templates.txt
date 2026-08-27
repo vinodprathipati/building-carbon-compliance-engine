@@ -1,0 +1,42 @@
+-- name: system_prompt
+You are a precise municipal building-regulation data extraction AI. Follow all extraction instructions exactly. Only extract values explicitly stated in the provided text — never guess, infer, or derive a value. Always return valid JSON with no explanation text outside the JSON object.
+
+-- name: table_match
+You are checking whether ONE table found in a regulation document matches a data concept.
+
+CONCEPT: {concept_name} — {concept_description}
+
+The candidate below describes one table (its section heading, an intro sentence, and its column headers — not the row data). It may be a continuation of a larger table split across multiple PDF pages — treat a continuation (same period and {label_display_name} category as another such table, just a different page/row range) as a match the same as any other genuine match.
+
+CANDIDATE:
+[chunk_id={chunk_id} page={page_number}]
+{full_text}
+
+This table's column headers, exactly as detected: {columns_line}
+
+Rules:
+- Return a JSON object with key "is_match" (boolean).
+- If is_match is true, also include: jurisdiction (string, inferred from the surrounding text), label_column (string, copied EXACTLY from the column headers listed above — the one holding each row's category/label), value_column (string, copied EXACTLY from the column headers listed above — the one holding each row's numeric value), period_start (integer or null), period_end (integer or null — null for both if this table isn't organized by compliance period at all, rather than guessing a period that isn't actually stated), unit (string, exactly as shown in the value column header).
+- If is_match is false, return only {{"is_match": false}}.
+- Return ONLY the JSON object. No explanation text outside the JSON.
+
+-- name: prose_extraction
+Extract every {concept_name} from the document excerpts below.
+
+CONCEPT: {concept_description}
+
+Each record has these fields:
+{field_definitions}
+
+Every record must also include:
+  - chunk_id (integer): which excerpt's chunk_id this record was extracted from.
+  - extracted_quote (string): the exact sentence or clause this record was extracted from, verbatim.
+
+EXCERPTS:
+{candidate_blocks}
+
+Rules:
+- Return a JSON object: {{"records": [...]}}.
+- Use null for any field not explicitly stated in the text.
+- If nothing in the text matches this concept, return {{"records": []}}.
+- Return ONLY the JSON object. No explanation text outside the JSON.

@@ -9,6 +9,7 @@ from sentence_transformers import SentenceTransformer
 from regulation_pipeline.chunking.docling_hybrid_chunker import Chunk
 from regulation_pipeline.chunking.table_extractor import TableDescriptor, to_chunk
 from regulation_pipeline.config import Settings
+from regulation_pipeline.db.queries import sql
 
 SEARCH_DOCUMENT_PREFIX = "search_document: "
 
@@ -35,12 +36,7 @@ def store_chunks(
     with conn.cursor() as cur:
         for chunk, embedding in zip(chunks, embeddings):
             cur.execute(
-                """
-                insert into document_chunks
-                    (rag_id, chunk_id, document_key, page_number, block_type,
-                     section, section_path, raw_text, full_text, chunk_meta)
-                values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                """,
+                sql("insert_document_chunk"),
                 (
                     rag_id,
                     chunk.chunk_id,
@@ -55,10 +51,7 @@ def store_chunks(
                 ),
             )
             cur.execute(
-                """
-                insert into chunk_embeddings (rag_id, chunk_id, embedding, model_name)
-                values (%s, %s, %s, %s)
-                """,
+                sql("insert_chunk_embedding"),
                 (rag_id, chunk.chunk_id, embedding, model_name),
             )
     conn.commit()
@@ -82,11 +75,7 @@ def store_document_tables(
     with conn.cursor() as cur:
         for descriptor in descriptors:
             cur.execute(
-                """
-                insert into document_tables
-                    (rag_id, table_ref, chunk_id, page_number, caption, column_headers, rows)
-                values (%s, %s, %s, %s, %s, %s, %s)
-                """,
+                sql("insert_document_table"),
                 (
                     rag_id,
                     descriptor.table_ref,

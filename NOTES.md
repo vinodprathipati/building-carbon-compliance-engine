@@ -15,8 +15,11 @@ revision/track-changes concept, and its `formatting` field (which could in
 principle carry underline/bold styling) is unpopulated on all 553 text
 elements with the default `docling_parse` backend — not usable as a signal.
 
-**Decision: not implemented yet.** When we build ingest, skip chunking pages
+**Decision: not implemented yet.** 
+1) When we build ingest, skip chunking pages
 before the final occurrence of a document's own top-level section header,
 rather than a hardcoded page number — keeps it generic across source PDFs
 instead of RCNY-specific. Revisit at that point.
+
+2) Inline SQLs separation
 

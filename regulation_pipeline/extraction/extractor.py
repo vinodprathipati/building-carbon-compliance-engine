@@ -5,6 +5,7 @@ from typing import Any
 import psycopg
 from sentence_transformers import SentenceTransformer
 
+from regulation_pipeline.db.queries import sql
 from regulation_pipeline.extraction.json_utils import extract_json
 from regulation_pipeline.extraction.llm_provider import AnthropicProvider
 from regulation_pipeline.extraction.prompts import (
@@ -66,7 +67,7 @@ def extract_table_concept(
     with conn.cursor() as cur:
         for candidate, match in matched:
             cur.execute(
-                "select rows from document_tables where rag_id = %s and chunk_id = %s",
+                sql("select_document_table_rows"),
                 (rag_id, candidate.chunk_id),
             )
             row = cur.fetchone()

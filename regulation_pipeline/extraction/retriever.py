@@ -6,6 +6,8 @@ from typing import Any
 import psycopg
 from sentence_transformers import SentenceTransformer
 
+from regulation_pipeline.db.queries import sql
+
 SEARCH_QUERY_PREFIX = "search_query: "
 
 
@@ -33,15 +35,7 @@ def search_chunks(
 ) -> list[CandidateChunk]:
     with conn.cursor() as cur:
         cur.execute(
-            """
-            select dc.chunk_id, dc.page_number, dc.block_type, dc.section, dc.raw_text, dc.full_text,
-                   dc.chunk_meta, 1 - (ce.embedding <=> %s::vector) as similarity
-            from chunk_embeddings ce
-            join document_chunks dc using (rag_id, chunk_id)
-            where ce.rag_id = %s
-            order by ce.embedding <=> %s::vector
-            limit %s
-            """,
+            sql("search_chunks"),
             (query_embedding, rag_id, query_embedding, top_k),
         )
         return [
