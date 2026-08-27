@@ -1,0 +1,3291 @@
+{
+  "extracted_at": "2026-08-27T01:09:35.473878+00:00",
+  "model": "claude-haiku-4-5-20251001",
+  "documents": {
+    "6": {
+      "document": "1_RCNY_103-14.pdf",
+      "concepts": {
+        "EmissionsFactor": [
+          {
+            "property_type": "Hospital (General Medical & Surgical)",
+            "value": "0.004654044",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Hotel",
+            "value": "0.002640017",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "K-12 School",
+            "value": "0.001488109",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Laboratory",
+            "value": "0.019522401",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Library",
+            "value": "0.001663809",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Lifestyle Center",
+            "value": "0.003529387",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Mailing Center/Post Office",
+            "value": "0.001485330",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Manufacturing/Industrial Plant",
+            "value": "0.000975993",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Medical Office",
+            "value": "0.001683565",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Movie Theater",
+            "value": "0.004046451",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Multifamily Housing",
+            "value": "0.002692183",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Museum",
+            "value": "0.004046850",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Non-Refrigerated Warehouse",
+            "value": "0.000568051",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Office",
+            "value": "0.001652340",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Other - Education",
+            "value": "0.001867699",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Other - Entertainment/Public Assembly",
+            "value": "0.002250122",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Other - Lodging/Residential",
+            "value": "0.001329089",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Other - Mall",
+            "value": "0.001006426",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Other - Public Services",
+            "value": "0.002856025",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Other - Recreation",
+            "value": "0.003359678",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Other - Restaurant/Bar",
+            "value": "0.006378806",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Other - Services",
+            "value": "0.001367536",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Other - Specialty Hospital",
+            "value": "0.004741365",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Other - Technology/Science",
+            "value": "0.007834842",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Outpatient Rehabilitation/Physical Therapy",
+            "value": "0.004513742",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Parking",
+            "value": "0.000104943",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Performing Arts",
+            "value": "0.001399345",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Personal Services (Health/Beauty, Dry Cleaning, etc.)",
+            "value": "0.003632278",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Pre-school/Daycare",
+            "value": "0.001772155",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Refrigerated Warehouse",
+            "value": "0.002139098",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Repair Services (Vehicle, Shoe, Locksmith, etc.)",
+            "value": "0.001658024",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Residence Hall/Dormitory",
+            "value": "0.001332459",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Residential Care Facility",
+            "value": "0.004027812",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Restaurant",
+            "value": "0.003028780",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Retail Store",
+            "value": "0.001216050",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Self-Storage Facility",
+            "value": "0.000404901",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Senior Care Community",
+            "value": "0.003336443",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Social/Meeting Hall",
+            "value": "0.002874831",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Strip Mall",
+            "value": "0.000600493",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Supermarket/Grocery Store",
+            "value": "0.004256103",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Transportation Terminal/Station",
+            "value": "0.000428752",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Urgent Care/Clinic/Other Outpatient Vocational School",
+            "value": "0.004329281 0.003459842",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Wholesale Club/Supercenter",
+            "value": "0.003198721",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 52
+          },
+          {
+            "property_type": "Adult Education",
+            "value": "0.002674146",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 51
+          },
+          {
+            "property_type": "Ambulatory Surgical Center",
+            "value": "0.006735459",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 51
+          },
+          {
+            "property_type": "Automobile Dealership",
+            "value": "0.002118072",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 51
+          },
+          {
+            "property_type": "Bank Branch",
+            "value": "0.003027129",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 51
+          },
+          {
+            "property_type": "Bowling Alley",
+            "value": "0.002327861",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 51
+          },
+          {
+            "property_type": "College/University",
+            "value": "0.001236322",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 51
+          },
+          {
+            "property_type": "Convenience Store without Gas Station",
+            "value": "0.002655024",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 51
+          },
+          {
+            "property_type": "Courthouse",
+            "value": "0.001110400",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 51
+          },
+          {
+            "property_type": "Data Center",
+            "value": "0.011093348",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 51
+          },
+          {
+            "property_type": "Distribution Center",
+            "value": "0.000549637",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 51
+          },
+          {
+            "property_type": "Enclosed Mall",
+            "value": "0.002987852",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 51
+          },
+          {
+            "property_type": "Financial Office",
+            "value": "0.002772753",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 51
+          },
+          {
+            "property_type": "Fitness Center/Health Club/Gym",
+            "value": "0.002960046",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 51
+          },
+          {
+            "property_type": "Food Sales",
+            "value": "0.003906660",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 51
+          },
+          {
+            "property_type": "Food Service",
+            "value": "0.005812060",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2035,
+            "period_end": 2039,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 51
+          },
+          {
+            "property_type": "Outpatient Rehabilitation/Physical Therapy",
+            "value": "0.006018323",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "property_type": "Parking",
+            "value": "0.000214421",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "property_type": "Performing Arts",
+            "value": "0.002472539",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "property_type": "Personal Services (Health/Beauty, Dry Cleaning, etc.)",
+            "value": "0.004843037",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "property_type": "Pre-school/Daycare",
+            "value": "0.002362874",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "property_type": "Refrigerated Warehouse",
+            "value": "0.002852131",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "property_type": "Repair Services (Vehicle, Shoe, Locksmith, etc.)",
+            "value": "0.002210699",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "property_type": "Residence Hall/Dormitory",
+            "value": "0.002464089",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "property_type": "Residential Care Facility",
+            "value": "0.004893124",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "property_type": "Restaurant",
+            "value": "0.004038374",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "property_type": "Retail Store",
+            "value": "0.002104490",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "property_type": "Self-Storage Facility",
+            "value": "0.000611830",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "property_type": "Senior Care Community",
+            "value": "0.004410123",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "property_type": "Social/Meeting Hall",
+            "value": "0.003833108",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "property_type": "Strip Mall",
+            "value": "0.001361842",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "property_type": "Supermarket/Grocery Store",
+            "value": "0.006755190",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "property_type": "Transportation Terminal/Station",
+            "value": "0.000571669",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "property_type": "Urgent Care/Clinic/Other Outpatient",
+            "value": "0.005772375",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "property_type": "Vocational School",
+            "value": "0.004613122",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "property_type": "Wholesale Club/Supercenter",
+            "value": "0.004264962",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "property_type": "Worship Facility",
+            "value": "0.001230602",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "property_type": "Adult Education",
+            "value": "0.00758",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Ambulatory Surgical Center",
+            "value": "0.01181",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Automobile Dealership",
+            "value": "0.00675",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Bank Branch",
+            "value": "0.00987",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Bowling Alley",
+            "value": "0.00574",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "College/University",
+            "value": "0.00987",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Convenience Store without Gas Station",
+            "value": "0.00675",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Courthouse",
+            "value": "0.00426",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Data Center",
+            "value": "0.02381",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Distribution Center",
+            "value": "0.00574",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Enclosed Mall",
+            "value": "0.01074",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Financial Office",
+            "value": "0.00846",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Fitness Center/Health Club/Gym",
+            "value": "0.00987",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Food Sales",
+            "value": "0.01181",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Food Service",
+            "value": "0.01181",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Hospital (General Medical & Surgical)",
+            "value": "0.02381",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Hotel",
+            "value": "0.00987",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "K-12 School",
+            "value": "0.00675",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Laboratory",
+            "value": "0.02381",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Library",
+            "value": "0.00675",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Lifestyle Center",
+            "value": "0.00846",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Mailing Center/Post Office",
+            "value": "0.00426",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Manufacturing/Industrial Plant",
+            "value": "0.00758",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Medical Office",
+            "value": "0.01074",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Movie Theater",
+            "value": "0.01181",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Multifamily Housing",
+            "value": "0.00675",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 47
+          },
+          {
+            "property_type": "Museum",
+            "value": "0.01181",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Non-Refrigerated Warehouse",
+            "value": "0.00426",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Office",
+            "value": "0.00758",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Other - Education",
+            "value": "0.00846",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Other - Entertainment/Public Assembly",
+            "value": "0.00987",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Other - Lodging/Residential",
+            "value": "0.00758",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Other - Mall",
+            "value": "0.01074",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Other - Public Services",
+            "value": "0.00758",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Other - Recreation",
+            "value": "0.00987",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Other - Restaurant/Bar",
+            "value": "0.02381",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Other - Services",
+            "value": "0.01074",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Other - Specialty Hospital",
+            "value": "0.02381",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Other - Technology/Science",
+            "value": "0.02381",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Outpatient Rehabilitation/Physical Therapy",
+            "value": "0.01181",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Parking",
+            "value": "0.00426",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Performing Arts",
+            "value": "0.00846",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Personal Services (Health/Beauty, Dry Cleaning, etc.)",
+            "value": "0.00574",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Pre-school/Daycare",
+            "value": "0.00675",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Refrigerated Warehouse",
+            "value": "0.00987",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Repair Services (Vehicle, Shoe, Locksmith, etc.)",
+            "value": "0.00426",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Residence Hall/Dormitory",
+            "value": "0.00758",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Residential Care Facility",
+            "value": "0.01138",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Restaurant",
+            "value": "0.01181",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Retail Store",
+            "value": "0.00758",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Self-Storage Facility",
+            "value": "0.00426",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Senior Care Community",
+            "value": "0.01138",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Social/Meeting Hall",
+            "value": "0.00987",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Strip Mall",
+            "value": "0.01181",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Supermarket/Grocery Store",
+            "value": "0.02381",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Transportation Terminal/Station",
+            "value": "0.00426",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Urgent Care/Clinic/Other Outpatient",
+            "value": "0.01181",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Vocational School",
+            "value": "0.00574",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Wholesale Club/Supercenter",
+            "value": "0.01138",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Worship Facility",
+            "value": "0.00574",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2024,
+            "period_end": 2029,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 48
+          },
+          {
+            "property_type": "Adult Education",
+            "value": "0.003565528",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Ambulatory Surgical Center",
+            "value": "0.008980612",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Automobile Dealership",
+            "value": "0.002824097",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Bank Branch",
+            "value": "0.004036172",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Bowling Alley",
+            "value": "0.003103815",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "College/University",
+            "value": "0.002099748",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Convenience Store without Gas Station",
+            "value": "0.003540032",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Courthouse",
+            "value": "0.001480533",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Data Center",
+            "value": "0.014791131",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Distribution Center",
+            "value": "0.000991600",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Enclosed Mall",
+            "value": "0.003983803",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Financial Office",
+            "value": "0.003697004",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Fitness Center/Health Club/Gym",
+            "value": "0.003946728",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Food Sales",
+            "value": "0.005208880",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Food Service",
+            "value": "0.007749414",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Hospital (General Medical & Surgical)",
+            "value": "0.007335204",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Hotel",
+            "value": "0.003850668",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "K-12 School",
+            "value": "0.002230588",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Laboratory",
+            "value": "0.026029868",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Library",
+            "value": "0.002218412",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Lifestyle Center",
+            "value": "0.004705850",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Mailing Center/Post Office",
+            "value": "0.001980440",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Manufacturing/Industrial Plant",
+            "value": "0.001417030",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Medical Office",
+            "value": "0.002912778",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Movie Theater",
+            "value": "0.005395268",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Multifamily Housing",
+            "value": "0.003346640",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Museum",
+            "value": "0.005395800",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Non-Refrigerated Warehouse",
+            "value": "0.000883187",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Office",
+            "value": "0.002690852",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Other - Education",
+            "value": "0.002934006",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Other - Entertainment/Public Assembly",
+            "value": "0.002956738",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Other - Lodging/Residential",
+            "value": "0.001901982",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Other - Mall",
+            "value": "0.001928226",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Other - Public Services",
+            "value": "0.003808033",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Other - Recreation",
+            "value": "0.004479570",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Other - Restaurant/Bar",
+            "value": "0.008505075",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Other - Services",
+            "value": "0.001823381",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Other - Specialty Hospital",
+            "value": "0.006321819",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Other - Technology/Science",
+            "value": "0.010446456",
+            "jurisdiction": "New York City",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 49
+          },
+          {
+            "property_type": "Adult Education",
+            "value": "0.001782764",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Ambulatory Surgical Center",
+            "value": "0.004490306",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Automobile Dealership",
+            "value": "0.001412048",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Bank Branch",
+            "value": "0.002018086",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Bowling Alley",
+            "value": "0.001551907",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "College/University",
+            "value": "0.000180818",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Convenience Store without Gas Station",
+            "value": "0.001770016",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Courthouse",
+            "value": "0.000740266",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Data Center",
+            "value": "0.007395565",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Distribution Center",
+            "value": "0.000123568",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Enclosed Mall",
+            "value": "0.001991901",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Financial Office",
+            "value": "0.001848502",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Fitness Center/Health Club/Gym",
+            "value": "0.001973364",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Food Sales",
+            "value": "0.002604440",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Food Service",
+            "value": "0.003874707",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Hospital (General Medical & Surgical)",
+            "value": "0.002997851",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Hotel",
+            "value": "0.001465772",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "K-12 School",
+            "value": "0.000809607",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Laboratory",
+            "value": "0.013014934",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Library",
+            "value": "0.001109206",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Lifestyle Center",
+            "value": "0.002352925",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Mailing Center/Post Office",
+            "value": "0.000990220",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Manufacturing/Industrial Plant",
+            "value": "0.000508346",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Medical Office",
+            "value": "0.000407851",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Movie Theater",
+            "value": "0.002697634",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Multifamily Housing",
+            "value": "0.002052731",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Museum",
+            "value": "0.002697900",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Non-Refrigerated Warehouse",
+            "value": "0.000163152",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Office",
+            "value": "0.000581893",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Other - Education",
+            "value": "0.000839571",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Other - Entertainment/Public Assembly",
+            "value": "0.001355610",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Other - Lodging/Residential",
+            "value": "0.000762093",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Other - Mall",
+            "value": "0.000067983",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Other - Public Services",
+            "value": "0.001904017",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Other - Recreation",
+            "value": "0.002239785",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Other - Restaurant/Bar",
+            "value": "0.004252537",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Other - Services",
+            "value": "0.000911691",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "property_type": "Other - Specialty Hospital",
+            "value": "0.003160910",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Other - Technology/Science",
+            "value": "0.005223228",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Outpatient Rehabilitation/Physical Therapy",
+            "value": "0.003009161",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Parking",
+            "value": "0",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Performing Arts",
+            "value": "0",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Personal Services (Health/Beauty, Dry Cleaning, etc.)",
+            "value": "0.002421519",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Pre-school/Daycare",
+            "value": "0.001181437",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Refrigerated Warehouse",
+            "value": "0.001426066",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Repair Services (Vehicle, Shoe, Locksmith, etc.)",
+            "value": "0.001105349",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Residence Hall/Dormitory",
+            "value": "0.000528616",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Residential Care Facility",
+            "value": "0.002272629",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Restaurant",
+            "value": "0.002019187",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Retail Store",
+            "value": "0.000176040",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Self-Storage Facility",
+            "value": "0.000132282",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Senior Care Community",
+            "value": "0.002277912",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Social/Meeting Hall",
+            "value": "0.001916554",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Strip Mall",
+            "value": "0.000038512",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Supermarket/Grocery Store",
+            "value": "0.002030027",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Transportation Terminal/Station",
+            "value": "0.000285834",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Urgent Care/Clinic/Other Outpatient",
+            "value": "0.002886187",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Vocational School",
+            "value": "0.002306561",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Wholesale Club/Supercenter",
+            "value": "0.002132481",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "property_type": "Worship Facility",
+            "value": "0.000549306",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          }
+        ],
+        "FuelCoefficient": [
+          {
+            "fuel_type": "Outpatient Rehabilitation/Physical Therapy",
+            "value": "0.006018323",
+            "jurisdiction": "Not explicitly stated",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "fuel_type": "Parking",
+            "value": "0.000214421",
+            "jurisdiction": "Not explicitly stated",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "fuel_type": "Performing Arts",
+            "value": "0.002472539",
+            "jurisdiction": "Not explicitly stated",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "fuel_type": "Personal Services (Health/Beauty, Dry Cleaning, etc.)",
+            "value": "0.004843037",
+            "jurisdiction": "Not explicitly stated",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "fuel_type": "Pre-school/Daycare",
+            "value": "0.002362874",
+            "jurisdiction": "Not explicitly stated",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "fuel_type": "Refrigerated Warehouse",
+            "value": "0.002852131",
+            "jurisdiction": "Not explicitly stated",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "fuel_type": "Repair Services (Vehicle, Shoe, Locksmith, etc.)",
+            "value": "0.002210699",
+            "jurisdiction": "Not explicitly stated",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "fuel_type": "Residence Hall/Dormitory",
+            "value": "0.002464089",
+            "jurisdiction": "Not explicitly stated",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "fuel_type": "Residential Care Facility",
+            "value": "0.004893124",
+            "jurisdiction": "Not explicitly stated",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "fuel_type": "Restaurant",
+            "value": "0.004038374",
+            "jurisdiction": "Not explicitly stated",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "fuel_type": "Retail Store",
+            "value": "0.002104490",
+            "jurisdiction": "Not explicitly stated",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "fuel_type": "Self-Storage Facility",
+            "value": "0.000611830",
+            "jurisdiction": "Not explicitly stated",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "fuel_type": "Senior Care Community",
+            "value": "0.004410123",
+            "jurisdiction": "Not explicitly stated",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "fuel_type": "Social/Meeting Hall",
+            "value": "0.003833108",
+            "jurisdiction": "Not explicitly stated",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "fuel_type": "Strip Mall",
+            "value": "0.001361842",
+            "jurisdiction": "Not explicitly stated",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "fuel_type": "Supermarket/Grocery Store",
+            "value": "0.006755190",
+            "jurisdiction": "Not explicitly stated",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "fuel_type": "Transportation Terminal/Station",
+            "value": "0.000571669",
+            "jurisdiction": "Not explicitly stated",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "fuel_type": "Urgent Care/Clinic/Other Outpatient",
+            "value": "0.005772375",
+            "jurisdiction": "Not explicitly stated",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "fuel_type": "Vocational School",
+            "value": "0.004613122",
+            "jurisdiction": "Not explicitly stated",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "fuel_type": "Wholesale Club/Supercenter",
+            "value": "0.004264962",
+            "jurisdiction": "Not explicitly stated",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "fuel_type": "Worship Facility",
+            "value": "0.001230602",
+            "jurisdiction": "Not explicitly stated",
+            "period_start": 2030,
+            "period_end": 2034,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 50
+          },
+          {
+            "fuel_type": "Butane",
+            "value": "0.00006502",
+            "jurisdiction": "campus",
+            "period_start": null,
+            "period_end": null,
+            "unit": "tCO 2 e per kBtu",
+            "chunk_id": 39
+          },
+          {
+            "fuel_type": "Butylene",
+            "value": "0.00006897",
+            "jurisdiction": "campus",
+            "period_start": null,
+            "period_end": null,
+            "unit": "tCO 2 e per kBtu",
+            "chunk_id": 39
+          },
+          {
+            "fuel_type": "Diesel",
+            "value": "0.00007421",
+            "jurisdiction": "campus",
+            "period_start": null,
+            "period_end": null,
+            "unit": "tCO 2 e per kBtu",
+            "chunk_id": 39
+          },
+          {
+            "fuel_type": "Distillate Fuel Oil No. 1",
+            "value": "0.00007350",
+            "jurisdiction": "campus",
+            "period_start": null,
+            "period_end": null,
+            "unit": "tCO 2 e per kBtu",
+            "chunk_id": 39
+          },
+          {
+            "fuel_type": "Ethane",
+            "value": "0.00005985",
+            "jurisdiction": "campus",
+            "period_start": null,
+            "period_end": null,
+            "unit": "tCO 2 e per kBtu",
+            "chunk_id": 39
+          },
+          {
+            "fuel_type": "Ethylene",
+            "value": "0.00006621",
+            "jurisdiction": "campus",
+            "period_start": null,
+            "period_end": null,
+            "unit": "tCO 2 e per kBtu",
+            "chunk_id": 39
+          },
+          {
+            "fuel_type": "Gasoline",
+            "value": "0.00007047",
+            "jurisdiction": "campus",
+            "period_start": null,
+            "period_end": null,
+            "unit": "tCO 2 e per kBtu",
+            "chunk_id": 39
+          },
+          {
+            "fuel_type": "Isobutane",
+            "value": "0.00006519",
+            "jurisdiction": "campus",
+            "period_start": null,
+            "period_end": null,
+            "unit": "tCO 2 e per kBtu",
+            "chunk_id": 39
+          },
+          {
+            "fuel_type": "Isobutylene",
+            "value": "0.00006911",
+            "jurisdiction": "campus",
+            "period_start": null,
+            "period_end": null,
+            "unit": "tCO 2 e per kBtu",
+            "chunk_id": 39
+          },
+          {
+            "fuel_type": "Kerosene",
+            "value": "0.00007769",
+            "jurisdiction": "campus",
+            "period_start": null,
+            "period_end": null,
+            "unit": "tCO 2 e per kBtu",
+            "chunk_id": 39
+          },
+          {
+            "fuel_type": "Naphtha (< 401 deg F)",
+            "value": "0.00006827",
+            "jurisdiction": "campus",
+            "period_start": null,
+            "period_end": null,
+            "unit": "tCO 2 e per kBtu",
+            "chunk_id": 39
+          },
+          {
+            "fuel_type": "Other Oil (> 401 deg F)",
+            "value": "0.00007647",
+            "jurisdiction": "campus",
+            "period_start": null,
+            "period_end": null,
+            "unit": "tCO 2 e per kBtu",
+            "chunk_id": 39
+          },
+          {
+            "fuel_type": "Pentanes Plus",
+            "value": "0.00007027",
+            "jurisdiction": "campus",
+            "period_start": null,
+            "period_end": null,
+            "unit": "tCO 2 e per kBtu",
+            "chunk_id": 39
+          },
+          {
+            "fuel_type": "Propane",
+            "value": "0.00006425",
+            "jurisdiction": "campus",
+            "period_start": null,
+            "period_end": null,
+            "unit": "tCO 2 e per kBtu",
+            "chunk_id": 39
+          },
+          {
+            "fuel_type": "Propylene",
+            "value": "0.00006802",
+            "jurisdiction": "campus",
+            "period_start": null,
+            "period_end": null,
+            "unit": "tCO 2 e per kBtu",
+            "chunk_id": 39
+          },
+          {
+            "fuel_type": "Special Naphtha",
+            "value": "0.00007259",
+            "jurisdiction": "campus",
+            "period_start": null,
+            "period_end": null,
+            "unit": "tCO 2 e per kBtu",
+            "chunk_id": 39
+          },
+          {
+            "fuel_type": "Coke Oven Gas",
+            "value": "0.00004689",
+            "jurisdiction": "campus",
+            "period_start": null,
+            "period_end": null,
+            "unit": "tCO 2 e per kBtu",
+            "chunk_id": 39
+          },
+          {
+            "fuel_type": "Fuel Gas",
+            "value": "0.00005925",
+            "jurisdiction": "campus",
+            "period_start": null,
+            "period_end": null,
+            "unit": "tCO 2 e per kBtu",
+            "chunk_id": 39
+          },
+          {
+            "fuel_type": "Biofuel",
+            "value": "0.00007389",
+            "jurisdiction": "campus",
+            "period_start": null,
+            "period_end": null,
+            "unit": "tCO 2 e per kBtu",
+            "chunk_id": 39
+          },
+          {
+            "fuel_type": "Adult Education",
+            "value": "0.001782764",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Ambulatory Surgical Center",
+            "value": "0.004490306",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Automobile Dealership",
+            "value": "0.001412048",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Bank Branch",
+            "value": "0.002018086",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Bowling Alley",
+            "value": "0.001551907",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "College/University",
+            "value": "0.000180818",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Convenience Store without Gas Station",
+            "value": "0.001770016",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Courthouse",
+            "value": "0.000740266",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Data Center",
+            "value": "0.007395565",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Distribution Center",
+            "value": "0.000123568",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Enclosed Mall",
+            "value": "0.001991901",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Financial Office",
+            "value": "0.001848502",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Fitness Center/Health Club/Gym",
+            "value": "0.001973364",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Food Sales",
+            "value": "0.002604440",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Food Service",
+            "value": "0.003874707",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Hospital (General Medical & Surgical)",
+            "value": "0.002997851",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Hotel",
+            "value": "0.001465772",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "K-12 School",
+            "value": "0.000809607",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Laboratory",
+            "value": "0.013014934",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Library",
+            "value": "0.001109206",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Lifestyle Center",
+            "value": "0.002352925",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Mailing Center/Post Office",
+            "value": "0.000990220",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Manufacturing/Industrial Plant",
+            "value": "0.000508346",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Medical Office",
+            "value": "0.000407851",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Movie Theater",
+            "value": "0.002697634",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Multifamily Housing",
+            "value": "0.002052731",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Museum",
+            "value": "0.002697900",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Non-Refrigerated Warehouse",
+            "value": "0.000163152",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Office",
+            "value": "0.000581893",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Other - Education",
+            "value": "0.000839571",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Other - Entertainment/Public Assembly",
+            "value": "0.001355610",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Other - Lodging/Residential",
+            "value": "0.000762093",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Other - Mall",
+            "value": "0.000067983",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Other - Public Services",
+            "value": "0.001904017",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Other - Recreation",
+            "value": "0.002239785",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Other - Restaurant/Bar",
+            "value": "0.004252537",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Other - Services",
+            "value": "0.000911691",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 53
+          },
+          {
+            "fuel_type": "Other - Specialty Hospital",
+            "value": "0.003160910",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Other - Technology/Science",
+            "value": "0.005223228",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Outpatient Rehabilitation/Physical Therapy",
+            "value": "0.003009161",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Parking",
+            "value": "0",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Performing Arts",
+            "value": "0",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Personal Services (Health/Beauty, Dry Cleaning, etc.)",
+            "value": "0.002421519",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Pre-school/Daycare",
+            "value": "0.001181437",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Refrigerated Warehouse",
+            "value": "0.001426066",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Repair Services (Vehicle, Shoe, Locksmith, etc.)",
+            "value": "0.001105349",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Residence Hall/Dormitory",
+            "value": "0.000528616",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Residential Care Facility",
+            "value": "0.002272629",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Restaurant",
+            "value": "0.002019187",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Retail Store",
+            "value": "0.000176040",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Self-Storage Facility",
+            "value": "0.000132282",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Senior Care Community",
+            "value": "0.002277912",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Social/Meeting Hall",
+            "value": "0.001916554",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Strip Mall",
+            "value": "0.000038512",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Supermarket/Grocery Store",
+            "value": "0.002030027",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Transportation Terminal/Station",
+            "value": "0.000285834",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Urgent Care/Clinic/Other Outpatient",
+            "value": "0.002886187",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Vocational School",
+            "value": "0.002306561",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Wholesale Club/Supercenter",
+            "value": "0.002132481",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          },
+          {
+            "fuel_type": "Worship Facility",
+            "value": "0.000549306",
+            "jurisdiction": "Not specified in provided text",
+            "period_start": 2040,
+            "period_end": 2049,
+            "unit": "tCO 2 e per sf",
+            "chunk_id": 54
+          }
+        ],
+        "PenaltyRule": [
+          {
+            "chunk_id": 15,
+            "jurisdiction": "New York City",
+            "rule_type": "late_filing",
+            "period_start": null,
+            "period_end": null,
+            "rate": 0.5,
+            "rate_unit": "$/sf/month",
+            "formula_description": "Penalty equals gross floor area multiplied by $0.50 for each month the report is not submitted within 12 months following May 1 of each year, including the 60 days following the deadline.",
+            "extracted_quote": "Such penalty shall be an amount equal to the gross floor area of such building, multiplied by $0.50, for each month such report is not submitted within the 12 months following May 1 of each year, including the 60 days following the deadline."
+          },
+          {
+            "chunk_id": 15,
+            "jurisdiction": "New York City",
+            "rule_type": "excess_emissions",
+            "period_start": null,
+            "period_end": null,
+            "rate": 268,
+            "rate_unit": "$/tCO2e",
+            "formula_description": "Penalty equals the difference between the building emissions limit established for a calendar year and the actual emissions reported for such calendar year, multiplied by $268 per ton of CO2 equivalent.",
+            "extracted_quote": "Such penalty shall be an amount equal to the difference between the building emissions limit established for a calendar year and the actual emissions reported for such calendar year in the building emissions report, multiplied by $268."
+          }
+        ],
+        "CoveredBuildingRule": []
+      }
+    },
+    "7": {
+      "document": "NYC_AdminCode_Chapter3.pdf",
+      "concepts": {
+        "EmissionsFactor": [],
+        "FuelCoefficient": [],
+        "PenaltyRule": [
+          {
+            "jurisdiction": "New York City",
+            "rule_type": "excess_emissions",
+            "period_start": null,
+            "period_end": null,
+            "rate": 268,
+            "rate_unit": "$/tCO2e",
+            "formula_description": "Penalty equals the difference between the building emissions limit and reported building emissions for the year, multiplied by $268 per ton. Capped as a maximum liability ('not more than').",
+            "chunk_id": 237,
+            "extracted_quote": "An owner of a covered building who has submitted a report pursuant to section 28-320.3.7 that indicates that such building has exceeded its annual building emissions limit shall be liable for a civil penalty of not more than an amount equal to the difference between the building emissions limit for such year and the reported building emissions for such year, multiplied by $268."
+          },
+          {
+            "jurisdiction": "New York City",
+            "rule_type": "late_filing",
+            "period_start": null,
+            "period_end": null,
+            "rate": 0.5,
+            "rate_unit": "$/sf/month",
+            "formula_description": "Penalty equals gross floor area multiplied by $0.50 per month for each month the violation is not corrected within 12 months following the reporting deadline. Capped as a maximum ('not more than'). No penalty applies if report is filed within 60 days of due date.",
+            "chunk_id": 240,
+            "extracted_quote": "An owner of a covered building subject to a violation for failure to file a report shall be liable for a penalty of not more than an amount equal to the gross floor area of such covered building, multiplied by $0.50, for each month that the violation is not corrected within the 12 months following the reporting deadline; provided, however, that an owner shall not be liable for a penalty for a report demonstrating compliance with the requirements of this article if such report is filed within 60 days of the date such report is due."
+          },
+          {
+            "jurisdiction": "New York City",
+            "rule_type": "false_reporting",
+            "period_start": null,
+            "period_end": null,
+            "rate": 500000,
+            "rate_unit": "flat",
+            "formula_description": "Civil penalty of not more than $500,000 for knowingly making a material false statement in a report or submission. This is in addition to criminal penalties (misdemeanor fine of not more than $500,000 or imprisonment of not more than 30 days or both).",
+            "chunk_id": 241,
+            "extracted_quote": "A person who violates this section shall also be liable for a civil penalty of not more than $500,000."
+          }
+        ],
+        "CoveredBuildingRule": [
+          {
+            "jurisdiction": "New York City",
+            "threshold_type": "single_building",
+            "threshold_sf": 25000,
+            "aggregation_rule": null,
+            "exceptions": [
+              "Real property classified as class one pursuant to subdivision 1 of section 1802 of the New York state real property tax law.",
+              "Real property not more than three stories consisting of attached, detached or semi-detached dwellings where each unit owner holds individual ownership and maintenance responsibility for HVAC and hot water systems, with no system serving more than two units."
+            ],
+            "chunk_id": 125,
+            "extracted_quote": "a building that exceeds 25,000 gross square feet (2323 m  2  )"
+          },
+          {
+            "jurisdiction": "New York City",
+            "threshold_type": "multi_building_lot",
+            "threshold_sf": 100000,
+            "aggregation_rule": "Two or more buildings on the same tax lot are combined to determine if their total gross square footage exceeds the threshold.",
+            "exceptions": [
+              "Real property classified as class one pursuant to subdivision 1 of section 1802 of the New York state real property tax law.",
+              "Real property not more than three stories consisting of attached, detached or semi-detached dwellings where each unit owner holds individual ownership and maintenance responsibility for HVAC and hot water systems, with no system serving more than two units."
+            ],
+            "chunk_id": 125,
+            "extracted_quote": "two or more buildings on the same tax lot that together exceed 100,000 gross square feet (9290 m  2  )"
+          },
+          {
+            "jurisdiction": "New York City",
+            "threshold_type": "multi_building_lot",
+            "threshold_sf": 100000,
+            "aggregation_rule": "Two or more buildings held in condominium form of ownership governed by the same board of managers are combined to determine if their total gross square footage exceeds the threshold.",
+            "exceptions": [
+              "Real property classified as class one pursuant to subdivision 1 of section 1802 of the New York state real property tax law.",
+              "Real property not more than three stories consisting of attached, detached or semi-detached dwellings where each unit owner holds individual ownership and maintenance responsibility for HVAC and hot water systems, with no system serving more than two units."
+            ],
+            "chunk_id": 125,
+            "extracted_quote": "two or more buildings held in the condominium form of ownership that are governed by the same board of managers and that together exceed 100,000 gross square feet (9290 m  2  )"
+          },
+          {
+            "jurisdiction": "New York City",
+            "threshold_type": "single_building",
+            "threshold_sf": 25000,
+            "aggregation_rule": null,
+            "exceptions": [
+              "Real property classified as class one pursuant to subdivision one of section 1802 of the real property tax law.",
+              "Real property not more than three stories consisting of attached, detached or semi-detached dwellings where each unit owner holds individual ownership and maintenance responsibility for HVAC and hot water systems, with no system serving more than two units."
+            ],
+            "chunk_id": 130,
+            "extracted_quote": "a building that exceeds 25,000 gross square feet (2323 m  2  )"
+          },
+          {
+            "jurisdiction": "New York City",
+            "threshold_type": "multi_building_lot",
+            "threshold_sf": 100000,
+            "aggregation_rule": "Two or more buildings on the same tax lot are combined to determine if their total gross square footage exceeds the threshold.",
+            "exceptions": [
+              "Real property classified as class one pursuant to subdivision one of section 1802 of the real property tax law.",
+              "Real property not more than three stories consisting of attached, detached or semi-detached dwellings where each unit owner holds individual ownership and maintenance responsibility for HVAC and hot water systems, with no system serving more than two units."
+            ],
+            "chunk_id": 130,
+            "extracted_quote": "two or more buildings on the same tax lot that together exceed 100,000 gross square feet (9290 m  2  )"
+          },
+          {
+            "jurisdiction": "New York City",
+            "threshold_type": "multi_building_lot",
+            "threshold_sf": 100000,
+            "aggregation_rule": "Two or more buildings held in condominium form of ownership governed by the same board of managers are combined to determine if their total gross square footage exceeds the threshold.",
+            "exceptions": [
+              "Real property classified as class one pursuant to subdivision one of section 1802 of the real property tax law.",
+              "Real property not more than three stories consisting of attached, detached or semi-detached dwellings where each unit owner holds individual ownership and maintenance responsibility for HVAC and hot water systems, with no system serving more than two units."
+            ],
+            "chunk_id": 130,
+            "extracted_quote": "two or more buildings held in the condominium form of ownership that are governed by the same board of managers and that together exceed 100,000 gross square feet (9290 m  2  )"
+          },
+          {
+            "jurisdiction": "New York City",
+            "threshold_type": "single_building",
+            "threshold_sf": 25000,
+            "aggregation_rule": null,
+            "exceptions": [
+              "Building is a rent regulated accommodation.",
+              "Building whose main use or dominant occupancy is classified as occupancy group A-3 religious house of worship.",
+              "Building owned by a housing development fund company organized pursuant to the business corporation law and article 11 of the New York state private housing finance law.",
+              "Building that participates in a project-based federal housing program."
+            ],
+            "chunk_id": 250,
+            "extracted_quote": "such building (i) exceeds 25,000 (2322.5 m  2  ) gross square feet"
+          },
+          {
+            "jurisdiction": "New York City",
+            "threshold_type": "multi_building_lot",
+            "threshold_sf": 50000,
+            "aggregation_rule": "One of two or more buildings on the same tax lot are combined to determine if their total gross square footage exceeds the threshold.",
+            "exceptions": [
+              "Building is a rent regulated accommodation.",
+              "Building whose main use or dominant occupancy is classified as occupancy group A-3 religious house of worship.",
+              "Building owned by a housing development fund company organized pursuant to the business corporation law and article 11 of the New York state private housing finance law.",
+              "Building that participates in a project-based federal housing program."
+            ],
+            "chunk_id": 250,
+            "extracted_quote": "is one of two or more buildings on the same tax lot that together exceed 50,000 gross square feet (4645 m  2  )"
+          },
+          {
+            "jurisdiction": "New York City",
+            "threshold_type": "multi_building_lot",
+            "threshold_sf": 50000,
+            "aggregation_rule": "One of two or more buildings held in condominium form of ownership governed by the same board of managers are combined to determine if their total gross square footage exceeds the threshold.",
+            "exceptions": [
+              "Building is a rent regulated accommodation.",
+              "Building whose main use or dominant occupancy is classified as occupancy group A-3 religious house of worship.",
+              "Building owned by a housing development fund company organized pursuant to the business corporation law and article 11 of the New York state private housing finance law.",
+              "Building that participates in a project-based federal housing program."
+            ],
+            "chunk_id": 250,
+            "extracted_quote": "is one of two or more buildings held in the condominium form of ownership that are governed by the same board of managers and that together exceed 50,000 gross square feet (4645 m  2  )"
+          },
+          {
+            "jurisdiction": "New York City",
+            "threshold_type": "single_building",
+            "threshold_sf": 25000,
+            "aggregation_rule": null,
+            "exceptions": [
+              "Real property not more than three stories consisting of attached, detached or semi-detached dwellings where each unit owner holds individual ownership and maintenance responsibility for HVAC and hot water systems, with no system serving more than 25,000 gross square feet.",
+              "Industrial facility primarily used for the generation of electric power or steam."
+            ],
+            "chunk_id": 251,
+            "extracted_quote": "Real property, not more than three stories, consisting of a series of attached, detached or semi-detached dwellings, for which ownership and the responsibility for maintenance of the HVAC systems and hot water heating systems is held by each individual dwelling unit owner, and with no HVAC system or hot water heating system in the series serving more than 25,000 gross square feet (2322.5 m  2  )"
+          },
+          {
+            "jurisdiction": "New York City",
+            "threshold_type": "single_building",
+            "threshold_sf": 25000,
+            "aggregation_rule": null,
+            "exceptions": [
+              "Building owned by the city that participates in the tenant interim lease apartment purchase program.",
+              "Real property classified as class one pursuant to subdivision 1 of section 1802 of the real property tax law.",
+              "Real property not more than three stories consisting of attached, detached or semi-detached dwellings where each unit owner holds individual ownership and maintenance responsibility for HVAC and hot water systems, with no system serving more than two units."
+            ],
+            "chunk_id": 109,
+            "extracted_quote": "a building that exceeds 25,000 gross square feet (2323 m  2  )"
+          },
+          {
+            "jurisdiction": "New York City",
+            "threshold_type": "multi_building_lot",
+            "threshold_sf": 100000,
+            "aggregation_rule": "Two or more buildings on the same tax lot are combined to determine if their total gross square footage exceeds the threshold.",
+            "exceptions": [
+              "Building owned by the city that participates in the tenant interim lease apartment purchase program.",
+              "Real property classified as class one pursuant to subdivision 1 of section 1802 of the real property tax law.",
+              "Real property not more than three stories consisting of attached, detached or semi-detached dwellings where each unit owner holds individual ownership and maintenance responsibility for HVAC and hot water systems, with no system serving more than two units."
+            ],
+            "chunk_id": 109,
+            "extracted_quote": "two or more buildings on the same tax lot that together exceed 100,000 gross square feet (9290 m  2  )"
+          },
+          {
+            "jurisdiction": "New York City",
+            "threshold_type": "multi_building_lot",
+            "threshold_sf": 100000,
+            "aggregation_rule": "Two or more buildings held in condominium form of ownership governed by the same board of managers are combined to determine if their total gross square footage exceeds the threshold.",
+            "exceptions": [
+              "Building owned by the city that participates in the tenant interim lease apartment purchase program.",
+              "Real property classified as class one pursuant to subdivision 1 of section 1802 of the real property tax law.",
+              "Real property not more than three stories consisting of attached, detached or semi-detached dwellings where each unit owner holds individual ownership and maintenance responsibility for HVAC and hot water systems, with no system serving more than two units."
+            ],
+            "chunk_id": 109,
+            "extracted_quote": "two or more buildings held in the condominium form of ownership that are governed by the same board of managers and that together exceed 100,000 gross square feet (9290 m  2  )"
+          }
+        ]
+      }
+    }
+  }
+}

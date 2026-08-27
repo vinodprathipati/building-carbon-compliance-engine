@@ -209,7 +209,7 @@
           "displayName": "Exceptions",
           "dataType": "array<string>",
           "required": false,
-          "description": "Plain-English list of carve-outs or exemptions that remove an otherwise-covered building from this rule (e.g. affordable housing exemptions, non-profit healthcare adjustments, city-owned building phase-in schedules). One array entry per distinct exception — do not merge unrelated exceptions into one string."
+          "description": "Plain-English list of carve-outs or exemptions that remove an otherwise-covered building from this rule (e.g. affordable housing exemptions, non-profit healthcare adjustments, city-owned building phase-in schedules). One array entry per distinct exception — do not merge unrelated exceptions into one string. Summarize each in one concise sentence in your own words — do not quote the statutory text verbatim."
         }
       ]
     }

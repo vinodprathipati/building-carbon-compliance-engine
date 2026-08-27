@@ -13,6 +13,8 @@ dependencies = [
     "pgvector>=0.3",
     "sentence-transformers>=3.0",
     "einops>=0.7",
+    "anthropic>=0.40",
+    "tenacity>=9.0",
     "pydantic-settings>=2.5",
 ]
 
