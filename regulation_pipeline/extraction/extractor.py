@@ -78,19 +78,13 @@ def _classify_candidate(
     return None
 
 
-def extract_table_concept(
+def _extract_matched_table_rows(
     conn: psycopg.Connection,
     llm: AnthropicProvider,
-    embed_model: SentenceTransformer,
     concept: ConceptSchema,
     rag_id: int,
-    top_k: int = DEFAULT_TOP_K,
+    candidates: list[CandidateChunk],
 ) -> list[dict[str, Any]]:
-    query_embedding = embed_query(embed_model, concept.retrieval_hint)
-    candidates = [c for c in search_chunks(conn, rag_id, query_embedding, top_k) if c.block_type == "table"]
-    if not candidates:
-        return []
-
     matched: list[tuple[CandidateChunk, dict[str, Any]]] = []
     for candidate in candidates:
         match = _classify_candidate(llm, concept, candidate)
@@ -124,6 +118,52 @@ def extract_table_concept(
                         "chunk_id": candidate.chunk_id,
                     }
                 )
+    return records
+
+
+def _extract_from_prose_candidate(
+    llm: AnthropicProvider, concept: ConceptSchema, candidate: CandidateChunk
+) -> list[dict[str, Any]]:
+    """Extract every match from ONE candidate chunk. Isolating to one
+    candidate per call, rather than batching several into one prompt,
+    avoids the same reliability failure mode already fixed for table
+    matching (_classify_candidate): a single call over multiple candidates
+    was measured to under-report — e.g. correctly extracting every record
+    from one dense chunk while silently skipping a second chunk sitting in
+    the same batch."""
+    prompt = build_prose_extraction_prompt(concept, [candidate])
+    response = llm.messages_create(
+        messages=[{"role": "user", "content": prompt}], max_tokens=PROSE_MAX_TOKENS, system=SYSTEM_PROMPT
+    )
+    parsed = extract_json(response.text)
+    return parsed.get("records", []) if isinstance(parsed, dict) else []
+
+
+def extract_table_concept(
+    conn: psycopg.Connection,
+    llm: AnthropicProvider,
+    embed_model: SentenceTransformer,
+    concept: ConceptSchema,
+    rag_id: int,
+    top_k: int = DEFAULT_TOP_K,
+) -> list[dict[str, Any]]:
+    """Table-shaped concepts usually live inside a Docling-detected table,
+    but the same fact can also turn up as prose in a different document
+    (e.g. FuelCoefficient's 2030-2034 utility exceptions live in a dense
+    paragraph in RCNY 103-14, not a table — confirmed by direct inspection,
+    not assumption). Route each retrieved candidate by its own block_type
+    rather than assuming every candidate for a "table" concept is a table;
+    non-table candidates would otherwise be silently discarded."""
+    query_embedding = embed_query(embed_model, concept.retrieval_hint)
+    candidates = search_chunks(conn, rag_id, query_embedding, top_k)
+    table_candidates = [c for c in candidates if c.block_type == "table"]
+    prose_candidates = [c for c in candidates if c.block_type != "table"]
+
+    records: list[dict[str, Any]] = []
+    if table_candidates:
+        records.extend(_extract_matched_table_rows(conn, llm, concept, rag_id, table_candidates))
+    for candidate in prose_candidates:
+        records.extend(_extract_from_prose_candidate(llm, concept, candidate))
     return records
 
 

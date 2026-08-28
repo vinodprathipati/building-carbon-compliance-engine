@@ -75,9 +75,16 @@
         {
           "id": "fuel_type",
           "displayName": "Fuel Type",
-          "dataType": "string",
+          "dataType": "enum",
           "required": true,
-          "description": "The exact fuel/energy source label as printed (e.g. 'Grid Electricity', 'Natural Gas', 'Fuel Oil #2', 'District Steam'). Extract verbatim — this must join against a disclosure dataset's own fuel-column naming, so do not normalize or abbreviate."
+          "allowedValues": [
+            "Grid Electricity", "Natural Gas", "District Steam", "Fuel Oil #2", "Fuel Oil #4",
+            "Distillate Fuel Oil No. 1", "Diesel", "Propane", "Kerosene", "Butane", "Butylene",
+            "Coke Oven Gas", "Ethane", "Ethylene", "Fuel Gas", "Gasoline", "Isobutane", "Isobutylene",
+            "Naphtha (< 401 deg F)", "Other Oil (> 401 deg F)", "Pentanes Plus", "Propylene",
+            "Special Naphtha", "Biofuel"
+          ],
+          "description": "Which fuel/energy source this coefficient applies to. Always use the single canonical name from the allowed list, even when the source text names the same fuel differently (e.g. 'Fuel Oil No. 2', '#2 fuel oil', and 'Number two (No. 2) fuel oil' all mean the exact same fuel — always emit 'Fuel Oil #2'). This does not lose fidelity to the source: extracted_quote separately preserves the exact source wording, so this field is free to be canonical rather than verbatim. Do NOT extract a record for: (a) adjustment/deduction/credit coefficients such as 'beneficial electrification' — these modify a building's calculated emissions after the fact, they are not a base fuel/energy coefficient; (b) the 'Marginal Grid Coefficient' (MGC), used only inside the natural-gas fuel-cell differential-emissions equation — a narrow, separate mechanism, not the general electricity coefficient, even though it is expressed in tCO2e/kWh like electricity is; (c) hourly/time-of-use (TOU) coefficients — an optional alternate calculation method a building owner may elect, not a fixed default coefficient; (d) on-site or off-site renewable generation coefficients (e.g. purchased off-site solar counted at 0 tCO2e/kWh) — an optional offset program with its own eligibility conditions, not the default grid coefficient every building uses. If a fuel genuinely doesn't match any allowed value, do not extract it rather than forcing it into the closest one."
         },
         {
           "id": "period_start",

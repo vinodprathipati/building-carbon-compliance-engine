@@ -159,15 +159,92 @@ def test_extract_table_concept_classifies_each_candidate_independently(mock_embe
 
 @patch("regulation_pipeline.extraction.extractor.search_chunks")
 @patch("regulation_pipeline.extraction.extractor.embed_query")
-def test_extract_table_concept_returns_empty_when_no_table_candidates(mock_embed, mock_search):
+def test_extract_table_concept_returns_empty_when_no_candidates(mock_embed, mock_search):
     mock_embed.return_value = [0.1, 0.2]
-    mock_search.return_value = [_prose_candidate(9)]  # block_type != 'table'
+    mock_search.return_value = []
 
     llm = MagicMock()
     records = extract_table_concept(MagicMock(), llm, MagicMock(), _emissions_factor_concept(), rag_id=6)
 
     assert records == []
     llm.messages_create.assert_not_called()
+
+
+@patch("regulation_pipeline.extraction.extractor.search_chunks")
+@patch("regulation_pipeline.extraction.extractor.embed_query")
+def test_extract_table_concept_routes_non_table_candidates_to_prose_extraction(mock_embed, mock_search):
+    # A "table" concept's fact can still turn up as prose in a different
+    # document (confirmed live: FuelCoefficient's 2030-2034 utility
+    # exceptions live in a dense RCNY paragraph, not a table) — a
+    # block_type != "table" candidate must not be silently discarded.
+    mock_embed.return_value = [0.1, 0.2]
+    mock_search.return_value = [_prose_candidate(9)]
+
+    llm = MagicMock()
+    llm.messages_create.return_value = LLMResponse(
+        text=(
+            '{"records": [{"jurisdiction": "New York City", "fuel_type": "Utility electricity", '
+            '"period_start": 2030, "period_end": 2034, "value": 0.000145, "unit": "tCO2e per kWh", '
+            '"chunk_id": 9, "extracted_quote": "quote"}]}'
+        ),
+        input_tokens=10,
+        output_tokens=10,
+    )
+
+    records = extract_table_concept(MagicMock(), llm, MagicMock(), _emissions_factor_concept(), rag_id=6)
+
+    assert records == [
+        {
+            "jurisdiction": "New York City",
+            "fuel_type": "Utility electricity",
+            "period_start": 2030,
+            "period_end": 2034,
+            "value": 0.000145,
+            "unit": "tCO2e per kWh",
+            "chunk_id": 9,
+            "extracted_quote": "quote",
+        }
+    ]
+    llm.messages_create.assert_called_once()  # one call for the one prose candidate, no batching
+
+
+@patch("regulation_pipeline.extraction.extractor.search_chunks")
+@patch("regulation_pipeline.extraction.extractor.embed_query")
+def test_extract_table_concept_merges_table_and_prose_candidates(mock_embed, mock_search):
+    mock_embed.return_value = [0.1, 0.2]
+    mock_search.return_value = [_table_candidate(47), _prose_candidate(9)]
+
+    llm = MagicMock()
+    llm.messages_create.side_effect = [
+        LLMResponse(
+            text=(
+                '{"is_match": true, "jurisdiction": "New York City", '
+                '"label_column": "ESPM Property Type", "value_column": "2024-2029 Factor", '
+                '"period_start": 2024, "period_end": 2029, "unit": "tCO2e/sf"}'
+            ),
+            input_tokens=10,
+            output_tokens=10,
+        ),
+        LLMResponse(
+            text=(
+                '{"records": [{"jurisdiction": "New York City", "fuel_type": "Utility electricity", '
+                '"period_start": 2030, "period_end": 2034, "value": 0.000145, "unit": "tCO2e per kWh", '
+                '"chunk_id": 9, "extracted_quote": "quote"}]}'
+            ),
+            input_tokens=10,
+            output_tokens=10,
+        ),
+    ]
+
+    conn = MagicMock()
+    cursor = MagicMock()
+    conn.cursor.return_value.__enter__.return_value = cursor
+    cursor.fetchone.return_value = ([{"ESPM Property Type": "Office", "2024-2029 Factor": "0.00758"}],)
+
+    records = extract_table_concept(conn, llm, MagicMock(), _emissions_factor_concept(), rag_id=6)
+
+    assert len(records) == 2
+    assert {r["chunk_id"] for r in records} == {47, 9}
 
 
 @patch("regulation_pipeline.extraction.extractor.search_chunks")
