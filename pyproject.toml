@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "building-carbon-emissions-compliance-engine"
+name = "building-carbon-compliance-engine"
 version = "0.1.0"
 description = "Pipelines for ingesting municipal building performance standards regulations and disclosures"
 requires-python = ">=3.11"

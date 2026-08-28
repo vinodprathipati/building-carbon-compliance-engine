@@ -211,3 +211,28 @@ def test_build_gold_rows_produces_one_row_per_period_per_covered_building():
     assert {r["property_id"] for r in rows} == {"12915497"}
     assert {(r["period_start"], r["period_end"]) for r in rows} == set(PERIODS)
     assert all(r["reported_emissions_tco2e"] == 72.4 for r in rows)
+
+
+def test_build_gold_rows_passes_through_raw_fuel_usage_unconverted():
+    # Fuel usage for the UI's pie chart is a direct passthrough from
+    # Silver — no coefficient math applied, matches the CSV's own values.
+    buildings = [
+        {
+            "property_id": "12915497",
+            "bbl": "1019820010",
+            "primary_property_type": "Social/Meeting Hall",
+            "gross_floor_area_ft": 33972.0,
+            "year_ending": "12/31/2021",
+            "electricity_use_kwh": 81265.7,
+            "natural_gas_use_kbtu": 978775.8,
+            "propane_use_kbtu": None,
+        }
+    ]
+    rows = build_gold_rows(
+        buildings, FUEL_COEFFICIENTS, EMISSIONS_CAPS, PENALTY_RATE, PERIODS, Decimal("25000"),
+        covered_bbls={"1019820010"},
+    )
+    assert all(r["electricity_use_kwh"] == 81265.7 for r in rows)
+    assert all(r["natural_gas_use_kbtu"] == 978775.8 for r in rows)
+    assert all(r["propane_use_kbtu"] is None for r in rows)
+    assert all(r["fuel_oil_5_6_use_kbtu"] is None for r in rows)  # not present on the building -> None, not an error

@@ -264,6 +264,24 @@ def load_compliance_periods(conn: psycopg.Connection, jurisdiction: str) -> list
 # --------------------------------------------------------------------------
 
 
+# Raw fuel-usage columns passed straight through from Silver, no
+# calculation applied — for the UI's fuel-mix pie chart. Deliberately
+# broader than FUEL_COLUMN_TO_TYPE (includes fuel_oil_5_6, which has no
+# confirmed LL97 coefficient — irrelevant here since nothing is computed
+# from these, they're just "what the CSV says was used").
+FUEL_USAGE_COLUMNS = [
+    "electricity_use_kwh",
+    "natural_gas_use_kbtu",
+    "fuel_oil_1_use_kbtu",
+    "fuel_oil_2_use_kbtu",
+    "fuel_oil_4_use_kbtu",
+    "fuel_oil_5_6_use_kbtu",
+    "diesel_2_use_kbtu",
+    "propane_use_kbtu",
+    "district_steam_use_kbtu",
+]
+
+
 def build_gold_rows(
     buildings: list[dict[str, Any]],
     coefficients_by_fuel: dict[str, list[dict]],
@@ -281,6 +299,7 @@ def build_gold_rows(
         is_on_list = building.get("bbl") in covered_bbls
         if not is_building_covered(building, covered_threshold_sf, is_on_list):
             continue
+        usage = {column: building.get(column) for column in FUEL_USAGE_COLUMNS}
         for projection in compute_compliance_projection(
             building, coefficients_by_fuel, caps_by_property_type, penalty_rate, periods
         ):
@@ -294,6 +313,7 @@ def build_gold_rows(
                     "gross_floor_area_ft": building.get("gross_floor_area_ft"),
                     "year_ending": building.get("year_ending"),
                     "reported_emissions_tco2e": building.get("total_ghg_emissions_tons"),
+                    **usage,
                     **projection,
                 }
             )
@@ -309,6 +329,15 @@ GOLD_SCHEMA = StructType(
         StructField("primary_property_type", StringType(), True),
         StructField("gross_floor_area_ft", DoubleType(), True),
         StructField("year_ending", StringType(), True),
+        StructField("electricity_use_kwh", DoubleType(), True),
+        StructField("natural_gas_use_kbtu", DoubleType(), True),
+        StructField("fuel_oil_1_use_kbtu", DoubleType(), True),
+        StructField("fuel_oil_2_use_kbtu", DoubleType(), True),
+        StructField("fuel_oil_4_use_kbtu", DoubleType(), True),
+        StructField("fuel_oil_5_6_use_kbtu", DoubleType(), True),
+        StructField("diesel_2_use_kbtu", DoubleType(), True),
+        StructField("propane_use_kbtu", DoubleType(), True),
+        StructField("district_steam_use_kbtu", DoubleType(), True),
         StructField("period_start", IntegerType(), True),
         StructField("period_end", IntegerType(), True),
         StructField("status", StringType(), True),
