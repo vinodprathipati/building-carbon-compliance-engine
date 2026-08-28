@@ -78,6 +78,13 @@ limit %s
 -- name: select_document_table_rows
 select rows from document_tables where rag_id = %s and chunk_id = %s
 
+-- name: select_early_chunks_text
+select full_text
+from document_chunks
+where rag_id = %s
+order by page_number nulls last, chunk_id
+limit %s
+
 -- name: insert_emissions_factor
 insert into emissions_factors
     (rag_id, chunk_id, jurisdiction, property_type, period_start, period_end,

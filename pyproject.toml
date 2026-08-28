@@ -16,6 +16,8 @@ dependencies = [
     "anthropic>=0.40",
     "tenacity>=9.0",
     "pydantic-settings>=2.5",
+    "pyspark==4.0.1",
+    "delta-spark==4.0.0",
 ]
 
 [project.optional-dependencies]

@@ -8,3 +8,6 @@ venv/
 .mypy_cache/
 .ruff_cache/
 .DS_Store
+
+# Generated Delta Lake tables (Bronze/Silver) — rebuilt from data/disclosures/*.csv
+data/lake/

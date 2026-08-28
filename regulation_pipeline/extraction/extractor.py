@@ -10,6 +10,7 @@ from regulation_pipeline.extraction.json_utils import extract_json
 from regulation_pipeline.extraction.llm_provider import AnthropicProvider
 from regulation_pipeline.extraction.prompts import (
     SYSTEM_PROMPT,
+    build_document_jurisdiction_prompt,
     build_prose_extraction_prompt,
     build_single_table_match_prompt,
 )
@@ -19,6 +20,40 @@ from regulation_pipeline.extraction.schema import ConceptSchema, label_field
 DEFAULT_TOP_K = 8
 MATCH_MAX_TOKENS = 512
 PROSE_MAX_TOKENS = 4096
+JURISDICTION_MAX_TOKENS = 128
+JURISDICTION_SAMPLE_CHUNKS = 3
+
+
+def infer_document_jurisdiction(conn: psycopg.Connection, llm: AnthropicProvider, rag_id: int) -> str | None:
+    """Infer a document's jurisdiction once, from its opening pages, rather
+    than re-guessing it per candidate during extraction.
+
+    Asking each table/prose candidate to infer jurisdiction from its own
+    narrow local context is unreliable — many candidates simply don't
+    happen to mention the municipality nearby, even though the document as
+    a whole clearly does (in its title/letterhead). That per-candidate
+    approach was measured to return a placeholder or null on the majority
+    of records. A single call over the document's opening pages is both
+    cheaper and more accurate; every extracted record for this rag_id
+    should be stamped with this one value.
+    """
+    with conn.cursor() as cur:
+        cur.execute(sql("select_early_chunks_text"), (rag_id, JURISDICTION_SAMPLE_CHUNKS))
+        rows = cur.fetchall()
+    full_text = "\n---\n".join(r[0] for r in rows if r[0])
+    if not full_text:
+        return None
+
+    prompt = build_document_jurisdiction_prompt(full_text)
+    response = llm.messages_create(
+        messages=[{"role": "user", "content": prompt}], max_tokens=JURISDICTION_MAX_TOKENS, system=SYSTEM_PROMPT
+    )
+    parsed = extract_json(response.text)
+    if isinstance(parsed, dict):
+        jurisdiction = parsed.get("jurisdiction")
+        if isinstance(jurisdiction, str) and jurisdiction.strip():
+            return jurisdiction.strip()
+    return None
 
 
 def _classify_candidate(

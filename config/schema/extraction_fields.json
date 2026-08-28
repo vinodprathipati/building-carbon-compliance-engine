@@ -8,10 +8,10 @@
   ],
   "concepts": {
     "EmissionsFactor": {
-      "description": "The allowed emissions intensity for one property type during one compliance period. Source: the property-type emissions-cap table found in the regulation text. Maps to: emissions_factors table.",
+      "description": "The allowed emissions intensity (a CAP, in tCO2e per square foot of building) for one property/building-use TYPE during one compliance period — e.g. 'Office', 'Multifamily Housing', 'Retail Store'. Source: the property-type emissions-cap table found in the regulation text. Maps to: emissions_factors table. Do NOT confuse with FuelCoefficient: this table's category column lists building use/occupancy categories (what the building IS), never a fuel or energy source (what the building BURNS) — a row labeled 'Fuel Oil #2', 'Natural Gas', or 'Grid Electricity' belongs to FuelCoefficient, not here, even if the surrounding table structure and units look identical.",
       "jsonPath": "emissionsFactors[]",
       "extractionMethod": "table",
-      "retrievalHint": "table of greenhouse gas emissions factors by property type and compliance period",
+      "retrievalHint": "table of greenhouse gas emissions caps by property type / building use category (e.g. Office, Multifamily Housing, Retail Store) and compliance period",
       "naturalKey": ["jurisdiction", "property_type", "period_start", "period_end"],
       "fields": [
         {
@@ -59,10 +59,10 @@
       ]
     },
     "FuelCoefficient": {
-      "description": "The emissions coefficient for one fuel/energy type during one compliance period, used to convert a building's raw energy consumption into actual emissions. Source: the fuel-coefficient table found in the regulation text. Maps to: fuel_coefficients table.",
+      "description": "The emissions coefficient for one fuel/energy SOURCE (e.g. 'Grid Electricity', 'Natural Gas', 'Fuel Oil #2', 'Fuel Oil #4', 'District Steam', 'Diesel', 'Propane') during one compliance period, used to convert a building's raw energy consumption into actual emissions. Source: the fuel-coefficient table found in the regulation text. Maps to: fuel_coefficients table. Do NOT confuse with EmissionsFactor: this table's category column lists what fuel/energy a building BURNS or draws (a physical energy source), never a building use/occupancy category — a row labeled 'Office', 'Multifamily Housing', or 'Retail Store' belongs to EmissionsFactor, not here, even if the surrounding table structure and units look identical. If every category in the table you're looking at is a building-use label rather than a named fuel/energy source, this is not a match.",
       "jsonPath": "fuelCoefficients[]",
       "extractionMethod": "table",
-      "retrievalHint": "table of greenhouse gas emissions coefficients by fuel type and compliance period",
+      "retrievalHint": "table of greenhouse gas emissions coefficients by fuel or energy source (e.g. electricity, natural gas, fuel oil, diesel, propane, district steam) and compliance period",
       "naturalKey": ["jurisdiction", "fuel_type", "period_start", "period_end"],
       "fields": [
         {

@@ -14,7 +14,7 @@ from regulation_pipeline.chunking.table_extractor import TableDescriptor, extrac
 from regulation_pipeline.config import Settings
 from regulation_pipeline.db.queries import sql
 from regulation_pipeline.embedding.pgvector_embedder import embed_and_store, embed_and_store_tables
-from regulation_pipeline.extraction.extractor import extract_concept
+from regulation_pipeline.extraction.extractor import extract_concept, infer_document_jurisdiction
 from regulation_pipeline.extraction.llm_provider import AnthropicProvider
 from regulation_pipeline.extraction.persist import store_concept_records
 from regulation_pipeline.extraction.schema import load_schema
@@ -135,8 +135,12 @@ def _run_extraction(
 ) -> dict[str, Any]:
     concepts = load_schema()
     counts: dict[str, int] = {}
+    document_jurisdiction = infer_document_jurisdiction(conn, llm, rag_id)
     for concept_name, concept in concepts.items():
         records = extract_concept(conn, llm, embed_model, concept, rag_id=rag_id, top_k=top_k)
+        if document_jurisdiction:
+            for record in records:
+                record["jurisdiction"] = document_jurisdiction
         skipped = store_concept_records(conn, concept_name, rag_id, settings.anthropic_model, records)
         for s in skipped:
             print(f"WARNING: skipped {concept_name} record (chunk_id={s.record.get('chunk_id')}): {s.reason}")

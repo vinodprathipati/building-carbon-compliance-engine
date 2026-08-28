@@ -1,6 +1,16 @@
 -- name: system_prompt
 You are a precise municipal building-regulation data extraction AI. Follow all extraction instructions exactly. Only extract values explicitly stated in the provided text — never guess, infer, or derive a value. Always return valid JSON with no explanation text outside the JSON object.
 
+-- name: document_jurisdiction
+What municipality or jurisdiction does the regulation document below govern (e.g. "New York City", "Boston")? Base your answer only on this document's own text — its title, letterhead, or explicit statements — not on assumptions from filenames or outside knowledge.
+
+DOCUMENT EXCERPT (opening pages):
+{full_text}
+
+Rules:
+- Return a JSON object with key "jurisdiction" (string, or null if the excerpt genuinely does not state one).
+- Return ONLY the JSON object. No explanation text outside the JSON.
+
 -- name: table_match
 You are checking whether ONE table found in a regulation document matches a data concept.
 

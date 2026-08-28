@@ -1,6 +1,11 @@
 from unittest.mock import MagicMock, patch
 
-from regulation_pipeline.extraction.extractor import extract_concept, extract_prose_concept, extract_table_concept
+from regulation_pipeline.extraction.extractor import (
+    extract_concept,
+    extract_prose_concept,
+    extract_table_concept,
+    infer_document_jurisdiction,
+)
 from regulation_pipeline.extraction.llm_provider import LLMResponse
 from regulation_pipeline.extraction.retriever import CandidateChunk
 from regulation_pipeline.extraction.schema import ConceptSchema, FieldSpec
@@ -208,3 +213,52 @@ def test_extract_concept_dispatches_by_extraction_method(mock_table, mock_prose)
 
     assert extract_concept(conn, llm, embed_model, _penalty_rule_concept(), rag_id=6) == ["prose-result"]
     mock_prose.assert_called_once()
+
+
+def test_infer_document_jurisdiction_uses_early_chunks_only():
+    conn = MagicMock()
+    cursor = MagicMock()
+    conn.cursor.return_value.__enter__.return_value = cursor
+    cursor.fetchall.return_value = [("Title page of the NYC Admin Code...",), ("Chapter 3, Article 320...",)]
+
+    llm = MagicMock()
+    llm.messages_create.return_value = LLMResponse(
+        text='{"jurisdiction": "New York City"}', input_tokens=10, output_tokens=10
+    )
+
+    result = infer_document_jurisdiction(conn, llm, rag_id=9)
+
+    assert result == "New York City"
+    cursor.execute.assert_called_once_with(
+        "select full_text\n"
+        "from document_chunks\n"
+        "where rag_id = %s\n"
+        "order by page_number nulls last, chunk_id\n"
+        "limit %s",
+        (9, 3),
+    )
+    llm.messages_create.assert_called_once()  # one call for the whole document, not per candidate
+
+
+def test_infer_document_jurisdiction_returns_none_when_not_stated():
+    conn = MagicMock()
+    cursor = MagicMock()
+    conn.cursor.return_value.__enter__.return_value = cursor
+    cursor.fetchall.return_value = [("Some generic regulatory text with no place name.",)]
+
+    llm = MagicMock()
+    llm.messages_create.return_value = LLMResponse(text='{"jurisdiction": null}', input_tokens=10, output_tokens=10)
+
+    assert infer_document_jurisdiction(conn, llm, rag_id=9) is None
+
+
+def test_infer_document_jurisdiction_returns_none_when_no_chunks_exist():
+    conn = MagicMock()
+    cursor = MagicMock()
+    conn.cursor.return_value.__enter__.return_value = cursor
+    cursor.fetchall.return_value = []
+
+    llm = MagicMock()
+
+    assert infer_document_jurisdiction(conn, llm, rag_id=9) is None
+    llm.messages_create.assert_not_called()

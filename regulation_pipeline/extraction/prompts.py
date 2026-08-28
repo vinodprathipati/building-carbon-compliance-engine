@@ -24,6 +24,10 @@ def _candidate_blocks(candidates: list[CandidateChunk], *, use_full_text: bool) 
     return "\n---\n".join(parts)
 
 
+def build_document_jurisdiction_prompt(full_text: str) -> str:
+    return _template("document_jurisdiction").format(full_text=full_text)
+
+
 def build_single_table_match_prompt(concept: ConceptSchema, candidate: CandidateChunk) -> str:
     label = label_field(concept)
     column_headers = candidate.chunk_meta.get("column_headers") or []
