@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two Pipelines, One Table</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #faf8f4;
+    --surface: #ffffff;
+    --ink: #211f1c;
+    --ink-muted: #6b6558;
+    --line: #d8d2c4;
+    --rag: #2b6e73;
+    --rag-fill: #e8f1f1;
+    --bronze: #a5652f;
+    --bronze-fill: #f3e6d8;
+    --steel: #6f7479;
+    --steel-fill: #eceef0;
+    --gold: #a97a15;
+    --gold-fill: #f7ecd3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #17140f;
+      --surface: #211d17;
+      --ink: #f3efe6;
+      --ink-muted: #a89e8a;
+      --line: #3c362b;
+      --rag: #6fc0c7;
+      --rag-fill: #1c2e2f;
+      --bronze: #d99a5c;
+      --bronze-fill: #33261a;
+      --steel: #b7bbbf;
+      --steel-fill: #26282a;
+      --gold: #e6b64b;
+      --gold-fill: #362a12;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #17140f;
+    --surface: #211d17;
+    --ink: #f3efe6;
+    --ink-muted: #a89e8a;
+    --line: #3c362b;
+    --rag: #6fc0c7;
+    --rag-fill: #1c2e2f;
+    --bronze: #d99a5c;
+    --bronze-fill: #33261a;
+    --steel: #b7bbbf;
+    --steel-fill: #26282a;
+    --gold: #e6b64b;
+    --gold-fill: #362a12;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
+    padding: 48px 24px 72px;
+  }
+
+  .page {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .kicker {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 600;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+
+  .dek {
+    margin: 0;
+    max-width: 62ch;
+    color: var(--ink-muted);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  figure {
+    margin: 8px 0 0;
+  }
+
+  .diagram-frame {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px;
+    overflow-x: auto;
+  }
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-width: 760px;
+  }
+
+  svg text {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    fill: currentColor;
+  }
+
+  .node-title {
+    font-size: 13.5px;
+    font-weight: 600;
+  }
+
+  .node-sub {
+    font-size: 11px;
+    fill: var(--ink-muted);
+  }
+
+  .edge-label {
+    font-size: 10.5px;
+    fill: var(--ink-muted);
+  }
+
+  .edge-label-accent {
+    font-size: 11.5px;
+    font-weight: 600;
+    fill: var(--gold);
+  }
+
+  .lane-label {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    fill: var(--ink-muted);
+  }
+
+  figcaption {
+    margin-top: 14px;
+    color: var(--ink-muted);
+    font-size: 13.5px;
+    line-height: 1.6;
+    max-width: 72ch;
+  }
+
+  figcaption b {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 18px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px;
+    color: var(--ink-muted);
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .swatch {
+    width: 11px;
+    height: 11px;
+    border-radius: 3px;
+    flex: none;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="kicker">Building Carbon Compliance Engine</div>
+  <h1>Two Pipelines, One Table</h1>
+  <p class="dek">
+    Regulation PDFs and disclosure filings start out as two unrelated kinds
+    of mess &mdash; unstructured legal text and a 260&#8209;column CSV. Each
+    gets its own pipeline. They meet exactly once, at a single Postgres
+    table, which is the only thing the UI ever reads.
+  </p>
+
+  <figure>
+    <div class="diagram-frame">
+      <svg viewBox="0 0 1220 1000" role="img" aria-label="Architecture diagram: regulation PDFs flow through a Docling-parse, embed, and Claude-extraction pipeline into four Postgres fact tables; the NYC disclosure CSV flows through Bronze and Silver Delta tables; the DOF covered-buildings PDF is loaded once, separately; all three converge in a Spark Gold computation that writes gold_building_compliance_projections, which the Streamlit UI reads directly, with no Spark dependency at request time.">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 Z" fill="currentColor" />
+          </marker>
+          <marker id="arrow-gold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 Z" fill="var(--gold)" />
+          </marker>
+        </defs>
+
+        <!-- lane labels -->
+        <text x="70" y="40" class="lane-label">regulation_pipeline</text>
+        <text x="660" y="40" class="lane-label">disclosure_pipeline</text>
+        <text x="1005" y="40" class="lane-label">one-time load</text>
+
+        <!-- ============ COLUMN A: regulation_pipeline ============ -->
+
+        <!-- A1 source -->
+        <rect x="70" y="60" width="300" height="62" rx="7" fill="var(--surface)" stroke="var(--line)" />
+        <text x="220" y="86" text-anchor="middle" class="node-title">RCNY 103-14 + Admin Code Ch. 3</text>
+        <text x="220" y="105" text-anchor="middle" class="node-sub">source PDFs</text>
+
+        <line x1="220" y1="122" x2="220" y2="196" stroke="currentColor" stroke-width="1.5" marker-end="url(#arrow)" />
+        <text x="232" y="163" class="edge-label">docling parse</text>
+
+        <!-- A2 chunks -->
+        <rect x="70" y="198" width="300" height="62" rx="7" fill="var(--surface)" stroke="var(--line)" />
+        <text x="220" y="224" text-anchor="middle" class="node-title">Chunks + table descriptors</text>
+        <text x="220" y="243" text-anchor="middle" class="node-sub">two chunking strategies</text>
+
+        <line x1="220" y1="260" x2="220" y2="334" stroke="currentColor" stroke-width="1.5" marker-end="url(#arrow)" />
+        <text x="232" y="301" class="edge-label">nomic-embed-text-v1</text>
+
+        <!-- A3 pgvector -->
+        <rect x="70" y="336" width="300" height="62" rx="7" fill="var(--rag-fill)" stroke="var(--rag)" />
+        <text x="220" y="362" text-anchor="middle" class="node-title">pgvector</text>
+        <text x="220" y="381" text-anchor="middle" class="node-sub">chunk_embeddings</text>
+
+        <line x1="220" y1="398" x2="220" y2="472" stroke="var(--rag)" stroke-width="1.5" marker-end="url(#arrow)" />
+        <text x="232" y="425" class="edge-label" fill="var(--rag)">retrieve top-k</text>
+        <text x="232" y="440" class="edge-label" fill="var(--rag)">Claude: classify + extract</text>
+
+        <!-- A4 fact tables -->
+        <rect x="70" y="474" width="300" height="72" rx="7" fill="var(--rag-fill)" stroke="var(--rag)" />
+        <text x="220" y="500" text-anchor="middle" class="node-title">4 regulatory fact tables</text>
+        <text x="220" y="518" text-anchor="middle" class="node-sub">emissions caps · fuel coefficients</text>
+        <text x="220" y="533" text-anchor="middle" class="node-sub">penalty rules · covered thresholds</text>
+
+        <!-- ============ COLUMN B: disclosure_pipeline ============ -->
+
+        <!-- B1 source -->
+        <rect x="660" y="60" width="300" height="62" rx="7" fill="var(--surface)" stroke="var(--line)" />
+        <text x="810" y="86" text-anchor="middle" class="node-title">NYC LL97 disclosure CSV</text>
+        <text x="810" y="105" text-anchor="middle" class="node-sub">29,842 filed rows</text>
+
+        <line x1="810" y1="122" x2="810" y2="196" stroke="currentColor" stroke-width="1.5" marker-end="url(#arrow)" />
+        <text x="822" y="163" class="edge-label">read raw · hash-check</text>
+
+        <!-- B2 bronze -->
+        <rect x="660" y="198" width="300" height="62" rx="7" fill="var(--bronze-fill)" stroke="var(--bronze)" />
+        <text x="810" y="224" text-anchor="middle" class="node-title">Bronze — Delta</text>
+        <text x="810" y="243" text-anchor="middle" class="node-sub">raw, source-faithful, string-typed</text>
+
+        <line x1="810" y1="260" x2="810" y2="334" stroke="currentColor" stroke-width="1.5" marker-end="url(#arrow)" />
+        <text x="822" y="290" class="edge-label">dedupe amended filings</text>
+        <text x="822" y="305" class="edge-label">type-cast · normalize BBL</text>
+
+        <!-- B3 silver -->
+        <rect x="660" y="336" width="300" height="62" rx="7" fill="var(--steel-fill)" stroke="var(--steel)" />
+        <text x="810" y="362" text-anchor="middle" class="node-title">Silver — Delta</text>
+        <text x="810" y="381" text-anchor="middle" class="node-sub">29,559 buildings, typed &amp; deduped</text>
+
+        <!-- ============ covered buildings branch ============ -->
+
+        <rect x="1000" y="336" width="160" height="62" rx="7" fill="none" stroke="var(--line)" stroke-dasharray="4 3" />
+        <text x="1080" y="358" text-anchor="middle" class="node-sub" style="fill:var(--ink)">DOF covered list</text>
+        <text x="1080" y="374" text-anchor="middle" class="node-sub">PDF, parsed once</text>
+        <text x="1080" y="388" text-anchor="middle" class="node-sub">24,135 BBLs</text>
+
+        <!-- ============ convergence arrows into Gold ============ -->
+
+        <path d="M 220 546 L 220 590 L 470 590 L 470 618" fill="none" stroke="var(--rag)" stroke-width="1.5" marker-end="url(#arrow)" />
+        <path d="M 810 398 L 810 590 L 620 590 L 620 618" fill="none" stroke="currentColor" stroke-width="1.5" marker-end="url(#arrow)" />
+        <path d="M 1080 398 L 1080 605 L 760 605 L 760 618" fill="none" stroke="var(--ink-muted)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)" />
+
+        <!-- Gold computation -->
+        <rect x="330" y="620" width="520" height="76" rx="8" fill="var(--gold-fill)" stroke="var(--gold)" stroke-width="1.5" />
+        <text x="590" y="649" text-anchor="middle" class="node-title" style="fill:var(--gold)">Gold computation — Spark</text>
+        <text x="590" y="668" text-anchor="middle" class="node-sub">join Silver + regulatory facts + covered list</text>
+        <text x="590" y="683" text-anchor="middle" class="node-sub">cap vs. actual, per building, per compliance period</text>
+
+        <line x1="590" y1="696" x2="590" y2="750" stroke="var(--gold)" stroke-width="1.5" marker-end="url(#arrow-gold)" />
+        <text x="602" y="727" class="edge-label" fill="var(--gold)">write · full overwrite each run</text>
+
+        <!-- Gold table -->
+        <rect x="340" y="752" width="500" height="64" rx="7" fill="var(--gold-fill)" stroke="var(--gold)" stroke-width="1.5" />
+        <text x="590" y="778" text-anchor="middle" class="node-title" style="fill:var(--gold)">gold_building_compliance_projections</text>
+        <text x="590" y="797" text-anchor="middle" class="node-sub">112,120 rows — 28,030 covered buildings &times; 4 periods</text>
+
+        <!-- emphasized read arrow -->
+        <line x1="590" y1="816" x2="590" y2="882" stroke="var(--gold)" stroke-width="2.5" marker-end="url(#arrow-gold)" />
+        <text x="602" y="845" class="edge-label-accent">reads directly</text>
+        <text x="602" y="861" class="edge-label-accent">no Spark at request time</text>
+
+        <!-- Streamlit UI -->
+        <rect x="410" y="884" width="360" height="62" rx="7" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.5" />
+        <text x="590" y="910" text-anchor="middle" class="node-title">Streamlit UI</text>
+        <text x="590" y="929" text-anchor="middle" class="node-sub">search a building by Property ID</text>
+      </svg>
+    </div>
+    <figcaption>
+      <b>Two independently-built pipelines converge exactly once.</b>
+      <span style="color:var(--rag)">regulation_pipeline</span> turns unstructured PDFs into four fact
+      tables via a RAG loop (Docling &rarr; nomic embeddings &rarr; pgvector &rarr; Claude).
+      <span style="color:var(--bronze)">disclosure_pipeline</span> turns a 30k-row CSV into
+      typed, deduplicated building records via a medallion Bronze/Silver flow on Spark. The
+      <span style="color:var(--gold)">Gold</span> step is the only place they meet &mdash; it joins Silver
+      against the regulatory facts and the covered-buildings list, computes real cap-vs-actual
+      penalty exposure per compliance period, and writes one serving table. The UI never touches
+      Spark, Delta, or the RAG pipeline directly &mdash; it reads that one gold table, which is why it
+      stays fast and simple to run.
+    </figcaption>
+    <div class="legend">
+      <div class="legend-item"><span class="swatch" style="background:var(--rag)"></span> RAG extraction (regulation_pipeline)</div>
+      <div class="legend-item"><span class="swatch" style="background:var(--bronze)"></span> Bronze — raw</div>
+      <div class="legend-item"><span class="swatch" style="background:var(--steel)"></span> Silver — cleaned</div>
+      <div class="legend-item"><span class="swatch" style="background:var(--gold)"></span> Gold — served</div>
+      <div class="legend-item"><span class="swatch" style="background:none;border:1.5px dashed var(--ink-muted)"></span> one-time load, not a pipeline</div>
+    </div>
+  </figure>
+</div>
+</body>
+</html>
