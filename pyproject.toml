@@ -18,6 +18,8 @@ dependencies = [
     "pydantic-settings>=2.5",
     "pyspark==4.0.1",
     "delta-spark==4.0.0",
+    "streamlit>=1.38",
+    "plotly>=5.24",
 ]
 
 [project.optional-dependencies]
