@@ -118,9 +118,10 @@ wrong number.
 
 ## Architecture and technical decisions
 
-**[See the architecture diagram](docs/diagrams/architecture.html)** — how
-the two pipelines below converge at a single Postgres table (open the
-file in a browser; GitHub won't render it inline).
+![Architecture diagram: two independently-built pipelines — regulation_pipeline's RAG extraction and disclosure_pipeline's medallion Bronze/Silver flow — converge at a single Gold Postgres table, which the Streamlit UI reads directly](docs/diagrams/architecture_diagram.png)
+
+*Two independently-built pipelines converge exactly once, at a single Gold
+table — the UI never touches Spark or the RAG pipeline directly.*
 
 **`regulation_pipeline`** — regulation PDF → structured facts, via RAG:
 Docling parses each PDF with two chunking strategies (general prose, plus
