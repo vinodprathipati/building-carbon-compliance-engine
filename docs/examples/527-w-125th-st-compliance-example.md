@@ -2,7 +2,16 @@
 
 Worked example of the full LL97 compliance/penalty calculation methodology,
 run end-to-end against real pipeline data (disclosure_pipeline Silver +
-regulation_pipeline extraction tables in Postgres).
+regulation_pipeline extraction tables in Postgres). Cross-checked against
+`gold_building_compliance_projections` (property_id 12915497).
+
+> **Updated**: an earlier version of this example used a flat electricity
+> coefficient (0.000288962 tCO2e/kWh) for every period. RCNY 103-14
+> actually specifies a lower coefficient for 2030 onward (0.000145
+> tCO2e/kWh) — extracted afterward, once the pipeline could read prose
+> facts as well as tables (see `docs/ai-transcripts/`). That correction
+> **flips this building's 2040-2049 verdict from "exceeds" to
+> "compliant."**
 
 ## Building
 
@@ -28,18 +37,33 @@ regulation_pipeline extraction tables in Postgres).
 The disclosure CSV's own `Total GHG Emissions` column is computed by ENERGY
 STAR Portfolio Manager using EPA/eGRID factors — not LL97's statutory
 methodology. The correct calculation is `Σ(fuel use × LL97's own fuel
-coefficient)`, using coefficients extracted into `fuel_coefficients`.
+coefficient)`, using coefficients extracted into `fuel_coefficients` — and
+the electricity coefficient itself changes by period (utility grid
+decarbonizes over time), so actual emissions must be recomputed per period,
+not held constant.
 
-| Fuel | Calculation (usage × coefficient = emissions) | Source (jurisdiction = New York City) |
-|---|---|---|
-| Grid Electricity | 81,265.7 kWh × 0.000288962 tCO2e/kWh = **23.48 tCO2e** | `fuel_coefficients` (Admin Code §28-320.3.1.1, prose) |
-| Natural Gas | 978,775.8 kBtu × 0.00005311 tCO2e/kBtu = **51.98 tCO2e** | `fuel_coefficients` (Admin Code §28-320.3.1.1, prose) |
-| All other fuel types | 0 (null in Silver) = **0 tCO2e** | — |
-| **Recalculated total** | 23.48 + 51.98 + 0 = **75.47 tCO2e** | |
+**2024–2029** (electricity coefficient 0.000288962 tCO2e/kWh):
 
-For comparison, the CSV's own reported figure was **72.4 tCO2e** — a 4.2%
-difference, consistent with the ~4% median gap measured across the wider
-dataset between the reported and recalculated methodologies.
+| Fuel | Calculation (usage × coefficient = emissions) |
+|---|---|
+| Grid Electricity | 81,265.7 kWh × 0.000288962 tCO2e/kWh = **23.48 tCO2e** |
+| Natural Gas | 978,775.8 kBtu × 0.00005311 tCO2e/kBtu = **51.98 tCO2e** |
+| **Total** | 23.48 + 51.98 = **75.47 tCO2e** |
+
+**2030–2034 onward** (electricity coefficient drops to 0.000145 tCO2e/kWh
+— no further utility-coefficient update is codified yet for 2035+, so this
+value is carried forward per `fuel_coefficients`' documented fallback):
+
+| Fuel | Calculation (usage × coefficient = emissions) |
+|---|---|
+| Grid Electricity | 81,265.7 kWh × 0.000145 tCO2e/kWh = **11.78 tCO2e** |
+| Natural Gas | 978,775.8 kBtu × 0.00005311 tCO2e/kBtu = **51.98 tCO2e** |
+| **Total** | 11.78 + 51.98 = **63.77 tCO2e** |
+
+For comparison, the CSV's own reported 2021 figure was **72.4 tCO2e** — a
+4.2% difference from the 2024-2029 recalculation, consistent with the ~4%
+median gap measured across the wider dataset between the reported and
+recalculated methodologies.
 
 ## Step 3 — Emissions cap by compliance period
 
@@ -61,24 +85,28 @@ fuel usage (2021) held constant against each period's stricter cap. Penalty
 formula: `max(0, actual − cap) × $268/tCO2e` (`penalty_rules`, rule_type =
 `excess_emissions`, extracted from Admin Code §28-320.6).
 
-| Period | Cap | Actual | Status | Excess (actual − cap) | Penalty calculation (excess × $268/tCO2e = penalty) |
-|---|---|---|---|---|---|
-| 2024–2029 | 335.3 tCO2e | 75.47 tCO2e | ✅ Compliant | 75.47 − 335.3 → 0 | $0 |
-| 2030–2034 | 130.2 tCO2e | 75.47 tCO2e | ✅ Compliant | 75.47 − 130.2 → 0 | $0 |
-| 2035–2039 | 97.7 tCO2e | 75.47 tCO2e | ✅ Compliant | 75.47 − 97.7 → 0 | $0 |
-| 2040–2049 | 65.1 tCO2e | 75.47 tCO2e | ❌ Exceeds | 75.47 − 65.1 = **10.37 tCO2e** | 10.37 × $268 = **~$2,779** |
+| Period | Cap | Actual | Status | Excess (actual − cap) |
+|---|---|---|---|---|
+| 2024–2029 | 335.3 tCO2e | 75.47 tCO2e | ✅ Compliant | 75.47 − 335.3 → 0 |
+| 2030–2034 | 130.2 tCO2e | 63.77 tCO2e | ✅ Compliant | 63.77 − 130.2 → 0 |
+| 2035–2039 | 97.7 tCO2e | 63.77 tCO2e | ✅ Compliant | 63.77 − 97.7 → 0 |
+| 2040–2049 | 65.1 tCO2e | 63.77 tCO2e | ✅ Compliant | 63.77 − 65.1 → 0 (1.34 t headroom) |
 
 ## Bottom line
 
-Compliant through 2039, including the current 2024–2029 period. Only
-breaches the cap in the 2040–2049 period, and modestly (~$2,779) —
-assuming flat energy use two decades out, a conservative worst case rather
-than a prediction.
+**Compliant across every compliance period through 2049**, including a
+close-but-clear margin in the final 2040-2049 period (1.34 tCO2e of
+headroom). The lower 2030+ electricity coefficient more than offsets the
+period's stricter cap for this building. No LL97 penalty exposure under
+the flat carry-forward assumption.
 
 ## Caveats
 
 - Uses the single 2021 baseline year available in the dataset; doesn't
   account for any operational/efficiency changes since then.
+- No utility-coefficient update is codified yet for 2035 onward — the
+  2030-2034 electricity/gas coefficients are carried forward as the best
+  available estimate, not a confirmed future value.
 - Doesn't yet account for RECs/green-power offset deductions (RCNY 103-14
   references an offset mechanism, exact rule not yet traced — see
   `ll97-disclosure-csv-columns` memory).

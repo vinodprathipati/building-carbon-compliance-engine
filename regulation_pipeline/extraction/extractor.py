@@ -19,7 +19,12 @@ from regulation_pipeline.extraction.schema import ConceptSchema, label_field
 
 DEFAULT_TOP_K = 8
 MATCH_MAX_TOKENS = 512
-PROSE_MAX_TOKENS = 4096
+# A dense chunk's JSON output expands well past its source size once every
+# field (jurisdiction, both period years, value, unit, and a duplicated
+# extracted_quote) is spelled out per record — a 3.2KB source chunk of
+# packed property-type entries hit this limit and got truncated mid-JSON
+# at 4096. Sized with headroom for the largest dense chunks seen so far.
+PROSE_MAX_TOKENS = 8192
 JURISDICTION_MAX_TOKENS = 128
 JURISDICTION_SAMPLE_CHUNKS = 3
 
@@ -135,7 +140,14 @@ def _extract_from_prose_candidate(
     response = llm.messages_create(
         messages=[{"role": "user", "content": prompt}], max_tokens=PROSE_MAX_TOKENS, system=SYSTEM_PROMPT
     )
-    parsed = extract_json(response.text)
+    try:
+        parsed = extract_json(response.text)
+    except ValueError:
+        # A malformed/truncated response for one candidate shouldn't abort
+        # extraction for every other candidate — skip it and keep going,
+        # same as a table candidate that fails classification.
+        print(f"WARNING: unparsable extraction response for chunk_id={candidate.chunk_id}, skipping")
+        return []
     return parsed.get("records", []) if isinstance(parsed, dict) else []
 
 
@@ -184,7 +196,11 @@ def extract_prose_concept(
     response = llm.messages_create(
         messages=[{"role": "user", "content": prompt}], max_tokens=PROSE_MAX_TOKENS, system=SYSTEM_PROMPT
     )
-    parsed = extract_json(response.text)
+    try:
+        parsed = extract_json(response.text)
+    except ValueError:
+        print(f"WARNING: unparsable extraction response for rag_id={rag_id}, concept={concept.name}, skipping")
+        return []
     return parsed.get("records", []) if isinstance(parsed, dict) else []
 
 

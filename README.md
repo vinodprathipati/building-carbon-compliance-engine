@@ -81,6 +81,35 @@ Copy `.env.example` to `.env` and fill in:
    .venv/bin/pytest
    ```
 
+## Clean end-to-end run
+
+To rebuild everything from scratch (fresh database, fresh Delta lake):
+
+1. **Reset.**
+   ```
+   psql "$DATABASE_URL" -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
+   for f in db/migrations/*.sql; do psql "$DATABASE_URL" -f "$f"; done
+   rm -rf data/lake
+   ```
+2. **regulation_pipeline** — parse both source PDFs, embed, extract all four
+   concepts (RCNY 103-14 and Admin Code Chapter 3 both feed
+   `fuel_coefficients`, so both need to run):
+   ```
+   .venv/bin/python scripts/run_regulation_pipeline.py
+   ```
+3. **Covered buildings list** — one-time load of NYC DOF's official
+   covered-buildings PDF (not a pipeline; see the script for why):
+   ```
+   .venv/bin/python scripts/load_covered_buildings_list.py
+   ```
+4. **disclosure_pipeline** — Bronze -> Silver -> Gold:
+   ```
+   .venv/bin/python scripts/run_disclosure_pipeline.py
+   ```
+
+Step 2 makes real Anthropic API calls (billed) and can take several
+minutes; step 4 processes the full ~30k-row disclosure CSV through Spark.
+
 ## Project layout
 
 - `regulation_pipeline/` — regulation PDF → structured facts (chunking,
