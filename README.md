@@ -46,6 +46,10 @@ and imposing steep **annual fines** on non-compliant properties.
 
 ![Architecture diagram](docs/diagrams/architecture_diagram.png)
 
+## User Interface
+
+![User Interface](docs/diagrams/UserInterface.png)
+
 ## Current Scope & Initial Validation
 
 - **Multi-City Pilot**: Currently deployed and benchmarked using municipal disclosure datasets and statutory codes from **New York City** and **Boston**:
